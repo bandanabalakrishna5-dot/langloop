@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LangLoop</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo"><span>Lang</span>Loop</div>
+    <nav>
+      <!-- <a href="#">Catalog</a> -->
+      <a href="#">Resources</a>
+      <a href="#">Community</a>
+      <!-- <a href="#">Pricing</a> -->
+      <!-- <a href="#">Live Learning <span style="color: yellow;">New</span></a>
+      <a href="#">For Business</a> -->
+      <a id="openLogin">Log In</a>
+      <button class="btn-yellow" id="openSignup">Sign Up</button>
+    </nav>
+  </header>
+
+  <div class="main">
+    <h1>Build skills that stand out</h1>
+
+    <div class="tabs">
+      <div class="tab active">Top subjects</div>
+      <div class="card-title">Interview prepartion</div>
+      <div class="card-title">Professional skills</div>
+
+
+    </div>
+
+    <div class="grid">
+
+      <div class="card"><div class="card-icon">🐍</div><div class="card-title">Python</div></div>
+      <div class="card"><div class="card-icon">🌐</div><div class="card-title">HTML & CSS</div></div>
+      <div class="card"><div class="card-icon">📊</div><div class="card-title">Data science</div></div>
+       <div class="card"><div class="card-icon">☕</div><div class="card-title">Java</div></div>
+      <div class="card"><div class="card-icon">💻</div><div class="card-title">Web development</div></div>
+      <div class="card"><div class="card-icon">📈</div><div class="card-title">Data analytics</div></div>
+      <div class="card"><div class="card-icon">🧠</div><div class="card-title">Machine learning</div></div>
+       <div class="card"><div class="card-icon">📜</div><div class="card-title">JavaScript</div></div>
+      <div class="card"><div class="card-icon">🖥️</div><div class="card-title">Web design</div></div>
+    </div>
+  </div>
+
+  <!-- Login / Signup Modal -->
+  <div class="login-container" id="loginModal">
+    <div class="login-box">
+      <div class="login-left">
+        <h1>LangLoop</h1>
+        <h2>Login into<br>your account</h2>
+        <p>A central place where all code languages loop together.</p>
+      </div>
+      <div class="login-container" id="loginModals">
+    <div class="login-box">
+      <div class="login-left">
+        <h1>LangLoop</h1>
+        <h2>Create<br>new account</h2>
+        <p>A central place where all code languages loop together.</p>
+      </div>
+      
+
+      <div class="login-right">
+        <!-- Login Form -->
+        <form class="login-form" id="loginForm" method="post">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" placeholder="name@example.com" required>
+
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" placeholder="Your password" required>
+
+          <button type="submit">Login</button>
+          <p class="signup-text">Don't have an account? <a href="#" id="showSignup">Sign up</a></p>
+        </form>
+        
+        <!-- Signup Form -->
+        <form class="signup-form" id="signupForm" method="post">
+          <label for="firstName">First Name</label>
+          <input type="text" name="firstName" id="firstName" placeholder="First Name" required>
+
+          <label for="lastName">Last Name</label>
+          <input type="text" name="lastName" id="lastName" placeholder="Last Name" required>
+
+          <label for="signupEmail">Email</label>
+          <input type="email" name="signupEmail" id="signupEmail" placeholder="name@example.com" required>
+
+          <label for="signupPassword">Password</label>
+          <input type="password" name="signupPassword" id="signupPassword" placeholder="Create a password" required>
+
+          <button type="submit">Sign Up</button>
+          <p class="signup-text">Already have an account? <a href="#" id="showLogin">Login</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Link external JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
