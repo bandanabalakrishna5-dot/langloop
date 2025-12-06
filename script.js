@@ -76,9 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  loginModals.addEventListener('click', (e) => {
-    if (e.target === loginModals) {
-      loginModals.style.display = 'none';
+  loginModal.addEventListener('click', (e) => {
+    if (e.target === loginModal) {
+      loginModal.style.display = 'none';
     }
   });
 
