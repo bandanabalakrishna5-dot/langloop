@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Management - Professional Skills</title>
+    <link rel="stylesheet" href="time-management.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <button class="back-btn" onclick="window.location.href='../../index.html'">← Back</button>
+            <h1 class="page-title">⏰ Time Management</h1>
+        </div>
+        <div class="language-selector">
+            <label for="language">Language:</label>
+            <select id="language">
+                <option value="all">All Languages</option>
+                <option value="english">English</option>
+                <option value="hindi">Hindi</option>
+            </select>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button class="tab-btn active" data-tab="youtube">📺 YouTube Channels</button>
+            <button class="tab-btn" data-tab="resources">📚 Resources & Tools</button>
+            <button class="tab-btn" data-tab="tips">📝 Techniques & Hacks</button>
+        </div>
+
+        <!-- YouTube Channels Tab -->
+        <div class="tab-pane active" id="youtube">
+            <div class="section-header">
+                <h2>Top YouTube Channels for Productivity</h2>
+                <p>Master your time and boost your efficiency</p>
+            </div>
+            <div id="channelsList" class="channels-grid"></div>
+        </div>
+
+        <!-- Resources & Books Tab -->
+        <div class="tab-pane" id="resources">
+            <div class="section-header">
+                <h2>Recommended Books & Resources</h2>
+                <p>Guides to help you work smarter, not harder</p>
+            </div>
+            <div id="resourcesList" class="resources-grid"></div>
+        </div>
+
+        <!-- Tips & Techniques Tab -->
+        <div class="tab-pane" id="tips">
+            <div class="section-header">
+                <h2>Productivity Techniques</h2>
+                <p>Proven methods to manage your time effectively</p>
+            </div>
+            <div id="tipsList" class="notes-grid"></div>
+        </div>
+    </main>
+
+    <script src="time-management.js"></script>
+</body>
+
+</html>
