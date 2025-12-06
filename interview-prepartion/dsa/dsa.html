@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Structures & Algorithms - Interview Preparation</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="dsa.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header class="page-header">
+            <h1>🔢 Data Structures & Algorithms</h1>
+            <p class="subtitle">Master DSA for technical interviews</p>
+        </header>
+
+        <!-- Tab Navigation -->
+        <div class="tabs-container">
+            <div class="tabs-nav">
+                <button class="tab-btn active" data-tab="youtube">
+                    <svg class="tab-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                    </svg>
+                    YouTube Channels
+                </button>
+                <button class="tab-btn" data-tab="practice">
+                    <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                    </svg>
+                    Practice Platforms
+                </button>
+                <button class="tab-btn" data-tab="resources">
+                    <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                        <polyline points="14 2 14 8 20 8" />
+                        <line x1="16" y1="13" x2="8" y2="13" />
+                        <line x1="16" y1="17" x2="8" y2="17" />
+                        <polyline points="10 9 9 9 8 9" />
+                    </svg>
+                    Resources & Tips
+                </button>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="tabs-content">
+                <!-- YouTube Tab -->
+                <div class="tab-pane active" id="youtube">
+                    <div class="language-selector">
+                        <label for="language">Select Language:</label>
+                        <select id="language" class="language-dropdown">
+                            <option value="all">All Languages</option>
+                            <option value="english">English</option>
+                            <option value="hindi">Hindi</option>
+                        </select>
+                    </div>
+
+                    <div class="youtube-channels" id="channelsList">
+                        <!-- Channels will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Practice Tab -->
+                <div class="tab-pane" id="practice">
+                    <div class="updates-section">
+                        <div class="update-card">
+                            <h3>💻 Top Practice Platforms</h3>
+                            <div class="practice-platforms">
+                                <div class="platform-item">
+                                    <h4>LeetCode</h4>
+                                    <p>Most popular platform with 3000+ problems. Great for interview prep.</p>
+                                    <a href="https://leetcode.com" target="_blank" class="btn-primary">Visit
+                                        LeetCode</a>
+                                </div>
+                                <div class="platform-item">
+                                    <h4>HackerRank</h4>
+                                    <p>Comprehensive challenges across multiple domains and difficulty levels.</p>
+                                    <a href="https://hackerrank.com" target="_blank" class="btn-primary">Visit
+                                        HackerRank</a>
+                                </div>
+                                <div class="platform-item">
+                                    <h4>CodeForces</h4>
+                                    <p>Competitive programming platform with regular contests.</p>
+                                    <a href="https://codeforces.com" target="_blank" class="btn-primary">Visit
+                                        CodeForces</a>
+                                </div>
+                                <div class="platform-item">
+                                    <h4>GeeksforGeeks</h4>
+                                    <p>Practice problems with detailed explanations and tutorials.</p>
+                                    <a href="https://www.geeksforgeeks.org" target="_blank" class="btn-primary">Visit
+                                        GFG</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="update-card">
+                            <h3>📊 Problem Categories</h3>
+                            <div class="society-content">
+                                <ul>
+                                    <li><strong>Arrays & Strings:</strong> Basic manipulation, two pointers, sliding
+                                        window</li>
+                                    <li><strong>Linked Lists:</strong> Reversal, cycle detection, merge operations</li>
+                                    <li><strong>Trees & Graphs:</strong> Traversals, BFS/DFS, shortest paths</li>
+                                    <li><strong>Dynamic Programming:</strong> Memoization, tabulation, optimization</li>
+                                    <li><strong>Sorting & Searching:</strong> Binary search, merge sort, quick sort</li>
+                                    <li><strong>Hash Tables:</strong> Frequency counting, caching patterns</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resources Tab -->
+                <div class="tab-pane" id="resources">
+                    <div class="notes-section">
+                        <div class="update-card">
+                            <h3>📚 Essential Resources</h3>
+                            <div class="history-timeline">
+                                <div class="timeline-item">
+                                    <span class="year">📖</span>
+                                    <div class="timeline-content">
+                                        <h4>Cracking the Coding Interview</h4>
+                                        <p>Classic book by Gayle Laakmann McDowell - must-read for interviews</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <span class="year">📖</span>
+                                    <div class="timeline-content">
+                                        <h4>Introduction to Algorithms (CLRS)</h4>
+                                        <p>Comprehensive textbook covering all major algorithms</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <span class="year">🌐</span>
+                                    <div class="timeline-content">
+                                        <h4>AlgoExpert</h4>
+                                        <p>Video explanations for 160+ coding interview questions</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <span class="year">🌐</span>
+                                    <div class="timeline-content">
+                                        <h4>NeetCode</h4>
+                                        <p>Curated list of 150 essential LeetCode problems</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="update-card">
+                            <h3>💡 Interview Tips</h3>
+                            <div class="society-content">
+                                <ul>
+                                    <li><strong>Clarify Requirements:</strong> Ask questions about edge cases and
+                                        constraints</li>
+                                    <li><strong>Think Out Loud:</strong> Explain your thought process to the interviewer
+                                    </li>
+                                    <li><strong>Start Simple:</strong> Begin with brute force, then optimize</li>
+                                    <li><strong>Test Your Code:</strong> Walk through examples and edge cases</li>
+                                    <li><strong>Time Complexity:</strong> Always analyze Big O notation</li>
+                                    <li><strong>Practice Regularly:</strong> Consistency is key - solve 1-2 problems
+                                        daily</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="dsa.js"></script>
+</body>
+
+</html>

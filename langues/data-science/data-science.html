@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Science - Learning Resources</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="data-science.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header class="page-header">
+            <h1>📊 Data Science Learning Resources</h1>
+            <p class="subtitle">Master Data Science with curated resources</p>
+        </header>
+
+        <div class="tabs-container">
+            <div class="tabs-nav">
+                <button class="tab-btn active" data-tab="youtube">
+                    <svg class="tab-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                    </svg>
+                    YouTube Channels
+                </button>
+                <button class="tab-btn" data-tab="updates">
+                    <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                    </svg>
+                    Updates &amp; History
+                </button>
+                <button class="tab-btn" data-tab="notes">
+                    <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                        <polyline points="14 2 14 8 20 8" />
+                        <line x1="16" y1="13" x2="8" y2="13" />
+                        <line x1="16" y1="17" x2="8" y2="17" />
+                        <polyline points="10 9 9 9 8 9" />
+                    </svg>
+                    Notes &amp; PDF
+                </button>
+            </div>
+
+            <div class="tabs-content">
+                <div class="tab-pane active" id="youtube">
+                    <div class="language-selector">
+                        <label for="language">Select Language:</label>
+                        <select id="language" class="language-dropdown">
+                            <option value="all">All Languages</option>
+                            <option value="english">English</option>
+                            <option value="hindi">Hindi</option>
+                            <option value="spanish">Spanish</option>
+                            <option value="french">French</option>
+                            <option value="german">German</option>
+                        </select>
+                    </div>
+                    <div class="youtube-channels" id="channelsList"></div>
+                </div>
+
+                <div class="tab-pane" id="updates">
+                    <div class="updates-section">
+                        <div class="update-card">
+                            <h3>📰 Latest Data Science News</h3>
+                            <div id="newsContent">
+                                <div class="news-item">
+                                    <span class="news-date">2024</span>
+                                    <h4>Pandas 2.2 Released</h4>
+                                    <p>Major performance improvements and new data manipulation features.</p>
+                                </div>
+                                <div class="news-item">
+                                    <span class="news-date">2024</span>
+                                    <h4>NumPy 2.0 Milestone</h4>
+                                    <p>First major release in years with breaking changes and optimizations.</p>
+                                </div>
+                                <div class="news-item">
+                                    <span class="news-date">2024</span>
+                                    <h4>Scikit-learn 1.5 Update</h4>
+                                    <p>New algorithms and enhanced model interpretability features.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="update-card">
+                            <h3>🏛️ Data Science in Society</h3>
+                            <div class="society-content">
+                                <p><strong>Data Science</strong> drives innovation and decision-making across
+                                    industries:</p>
+                                <ul>
+                                    <li><strong>Research:</strong> Accelerates scientific discoveries in genomics,
+                                        climate, and physics</li>
+                                    <li><strong>Business:</strong> Powers recommendation systems and customer insights
+                                    </li>
+                                    <li><strong>Healthcare:</strong> Enables predictive diagnostics and drug discovery
+                                    </li>
+                                    <li><strong>Finance:</strong> Supports algorithmic trading and risk modeling</li>
+                                    <li><strong>Social Good:</strong> Addresses poverty, education, and environmental
+                                        challenges</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="update-card">
+                            <h3>📜 Data Science History</h3>
+                            <div class="history-timeline">
+                                <div class="timeline-item">
+                                    <span class="year">1962</span>
+                                    <div class="timeline-content">
+                                        <h4>Term "Data Science" First Used</h4>
+                                        <p>John Tukey writes about the future of data analysis</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <span class="year">1997</span>
+                                    <div class="timeline-content">
+                                        <h4>Modern Definition Emerges</h4>
+                                        <p>C.F. Jeff Wu proposes "statistics = data science"</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <span class="year">2008</span>
+                                    <div class="timeline-content">
+                                        <h4>Data Scientist Role Created</h4>
+                                        <p>LinkedIn and Facebook formalize the position</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <span class="year">2012</span>
+                                    <div class="timeline-content">
+                                        <h4>"Sexiest Job of the 21st Century"</h4>
+                                        <p>Harvard Business Review article sparks massive interest</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <span class="year">2020s</span>
+                                    <div class="timeline-content">
+                                        <h4>AI Integration Era</h4>
+                                        <p>Data science merges with machine learning and AI</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="notes">
+                    <div class="notes-section">
+                        <div class="search-container">
+                            <h3>🔍 Search for Data Science Notes</h3>
+                            <div class="search-box">
+                                <input type="text" id="searchQuery"
+                                    placeholder="Enter topic (e.g., pandas, statistics, ML)">
+                                <button id="searchBtn" class="btn-primary">Search</button>
+                            </div>
+                        </div>
+                        <div class="results-container" id="searchResults"></div>
+                        <div class="pdf-converter">
+                            <h3>📄 Convert to PDF</h3>
+                            <div class="pdf-options">
+                                <textarea id="notesContent" placeholder="Paste or type your notes here..."></textarea>
+                                <button id="convertPdfBtn" class="btn-primary">Convert to PDF</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="data-science.js"></script>
+</body>
+
+</html>
