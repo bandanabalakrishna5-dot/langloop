@@ -255,6 +255,15 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // Back button navigation
+    const backBtn = document.querySelector('.back-btn');
+    if (backBtn) {
+        backBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            window.location.href = 'http://localhost:3000/';
+        });
+    }
+
     // Initialize content
     displayChannels('all');
     displayStarMethod();
