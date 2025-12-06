@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LangLoop</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
   <header>
     <div class="logo"><span>Lang</span>Loop</div>
     <nav>
-      <!-- <a href="#">Catalog</a> -->
       <a href="#">Resources</a>
       <a href="#">Community</a>
-      <!-- <a href="#">Pricing</a> -->
-      <!-- <a href="#">Live Learning <span style="color: yellow;">New</span></a>
-      <a href="#">For Business</a> -->
       <a id="openLogin">Log In</a>
       <button class="btn-yellow" id="openSignup">Sign Up</button>
     </nav>
@@ -26,24 +24,105 @@
     <h1>Build skills that stand out</h1>
 
     <div class="tabs">
-      <div class="tab active">Top subjects</div>
-      <div class="card-title">Interview prepartion</div>
-      <div class="card-title">Professional skills</div>
-
-
+      <div class="tab active" data-tab="top-subjects">All</div>
+      <div class="tab" data-tab="interview-prep">Interview preparation</div>
+      <div class="tab" data-tab="professional-skills">Professional skills</div>
     </div>
 
-    <div class="grid">
+    <!-- Top Subjects Grid -->
+    <div class="grid" id="top-subjects-grid">
+      <div class="card" id="pythonCard">
+        <div class="card-icon">🐍</div>
+        <div class="card-title">Python</div>
+      </div>
+      <div class="card" id="htmlCssCard">
+        <div class="card-icon">🌐</div>
+        <div class="card-title">HTML & CSS</div>
+      </div>
+      <div class="card" id="dataScienceCard">
+        <div class="card-icon">📊</div>
+        <div class="card-title">Data science</div>
+      </div>
+      <div class="card" id="javaCard">
+        <div class="card-icon">☕</div>
+        <div class="card-title">Java</div>
+      </div>
+      <div class="card" id="webDevCard">
+        <div class="card-icon">💻</div>
+        <div class="card-title">Web development</div>
+      </div>
+      <div class="card" id="dataAnalyticsCard">
+        <div class="card-icon">📈</div>
+        <div class="card-title">Data analytics</div>
+      </div>
+      <div class="card" id="machineLearningCard">
+        <div class="card-icon">🧠</div>
+        <div class="card-title">Machine learning</div>
+      </div>
+      <div class="card" id="javascriptCard">
+        <div class="card-icon">📜</div>
+        <div class="card-title">JavaScript</div>
+      </div>
+      <div class="card" id="webDesignCard">
+        <div class="card-icon">🖥️</div>
+        <div class="card-title">Web design</div>
+      </div>
+    </div>
 
-      <div class="card"><div class="card-icon">🐍</div><div class="card-title">Python</div></div>
-      <div class="card"><div class="card-icon">🌐</div><div class="card-title">HTML & CSS</div></div>
-      <div class="card"><div class="card-icon">📊</div><div class="card-title">Data science</div></div>
-       <div class="card"><div class="card-icon">☕</div><div class="card-title">Java</div></div>
-      <div class="card"><div class="card-icon">💻</div><div class="card-title">Web development</div></div>
-      <div class="card"><div class="card-icon">📈</div><div class="card-title">Data analytics</div></div>
-      <div class="card"><div class="card-icon">🧠</div><div class="card-title">Machine learning</div></div>
-       <div class="card"><div class="card-icon">📜</div><div class="card-title">JavaScript</div></div>
-      <div class="card"><div class="card-icon">🖥️</div><div class="card-title">Web design</div></div>
+    <!-- Interview Preparation Grid -->
+    <div class="grid" id="interview-prep-grid" style="display: none;">
+      <div class="card" id="dsaCard">
+        <div class="card-icon">🔢</div>
+        <div class="card-title">Data Structures & Algorithms</div>
+      </div>
+      <div class="card" id="systemDesignCard">
+        <div class="card-icon">🏗️</div>
+        <div class="card-title">System Design</div>
+      </div>
+      <div class="card" id="behavioralCard">
+        <div class="card-icon">💬</div>
+        <div class="card-title">Behavioral Interview</div>
+      </div>
+      <div class="card" id="codingPracticeCard">
+        <div class="card-icon">⌨️</div>
+        <div class="card-title">Coding Practice</div>
+      </div>
+      <div class="card" id="technicalConceptsCard">
+        <div class="card-icon">📚</div>
+        <div class="card-title">Technical Concepts</div>
+      </div>
+      <div class="card" id="mockInterviewCard">
+        <div class="card-icon">🎯</div>
+        <div class="card-title">Mock Interviews</div>
+      </div>
+    </div>
+
+    <!-- Professional Skills Grid -->
+    <div class="grid" id="professional-skills-grid" style="display: none;">
+      <div class="card" id="communicationCard">
+        <div class="card-icon">🗣️</div>
+        <div class="card-title">Communication</div>
+      </div>
+      <div class="card" id="leadershipCard">
+        <div class="card-icon">👑</div>
+        <div class="card-title">Leadership</div>
+      </div>
+      <div class="card" id="projectManagementCard">
+        <div class="card-icon">📋</div>
+        <div class="card-title">Project Management</div>
+      </div>
+      <div class="card" id="teamworkCard">
+        <div class="card-icon">🤝</div>
+        <div class="card-title">Teamwork</div>
+      </div>
+      <div class="card" id="timeManagementCard">
+        <div class="card-icon">⏰</div>
+        <div class="card-title">Time Management</div>
+      </div>
+      <div class="card" id="problemSolvingCard">
+        <div class="card-icon"></div>
+        <div class="card-title">Problem Solving</div>
+      </div>
     </div>
   </div>
 
@@ -52,17 +131,9 @@
     <div class="login-box">
       <div class="login-left">
         <h1>LangLoop</h1>
-        <h2>Login into<br>your account</h2>
+        <h2 id="modalTitle">Login into<br>your account</h2>
         <p>A central place where all code languages loop together.</p>
       </div>
-      <div class="login-container" id="loginModals">
-    <div class="login-box">
-      <div class="login-left">
-        <h1>LangLoop</h1>
-        <h2>Create<br>new account</h2>
-        <p>A central place where all code languages loop together.</p>
-      </div>
-      
 
       <div class="login-right">
         <!-- Login Form -->
@@ -76,7 +147,7 @@
           <button type="submit">Login</button>
           <p class="signup-text">Don't have an account? <a href="#" id="showSignup">Sign up</a></p>
         </form>
-        
+
         <!-- Signup Form -->
         <form class="signup-form" id="signupForm" method="post">
           <label for="firstName">First Name</label>
@@ -101,4 +172,5 @@
   <!-- Link external JavaScript -->
   <script src="script.js"></script>
 </body>
+
 </html>

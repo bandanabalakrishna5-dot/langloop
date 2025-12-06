@@ -1,7 +1,35 @@
 // Wait until the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
+  // Tab switching functionality - REQUIRED for main page tabs to work
+  const tabs = document.querySelectorAll('.tab');
+  const grids = {
+    'top-subjects': document.getElementById('top-subjects-grid'),
+    'interview-prep': document.getElementById('interview-prep-grid'),
+    'professional-skills': document.getElementById('professional-skills-grid')
+  };
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      // Remove active class from all tabs
+      tabs.forEach(t => t.classList.remove('active'));
+      // Add active class to clicked tab
+      tab.classList.add('active');
+
+      // Hide all grids
+      Object.values(grids).forEach(grid => {
+        if (grid) grid.style.display = 'none';
+      });
+
+      // Show the selected grid
+      const selectedTab = tab.getAttribute('data-tab');
+      if (grids[selectedTab]) {
+        grids[selectedTab].style.display = 'grid';
+      }
+    });
+  });
+
+  // Modal elements
   const loginModal = document.getElementById('loginModal');
-  const loginModals = document.getElementById('loginModals');
   const loginForm = document.querySelector('.login-form');
   const signupForm = document.querySelector('.signup-form');
   const showSignupLink = document.getElementById('showSignup');
@@ -18,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Show modal with signup form
   openSignupBtn.addEventListener('click', () => {
-    loginModals.style.display = 'flex';
+    loginModal.style.display = 'flex';
     loginForm.style.display = 'none';
     signupForm.style.display = 'flex';
   });
@@ -47,11 +75,33 @@ document.addEventListener('DOMContentLoaded', () => {
       loginModal.style.display = 'none';
     }
   });
-   loginModals.addEventListener('click', (e) => {
+
+  loginModals.addEventListener('click', (e) => {
     if (e.target === loginModals) {
       loginModals.style.display = 'none';
     }
   });
-});
 
-  
+  // Navigate to subject pages when cards are clicked
+  const subjectCards = {
+    pythonCard: 'langues/python/python.html',
+    javaCard: 'langues/java/java.html',
+    dataScienceCard: 'langues/data-science/data-science.html',
+    javascriptCard: 'langues/javascript.html',
+    htmlCssCard: 'langues/html-css/html-css.html',
+    webDevCard: 'langues/web-development.html',
+    dataAnalyticsCard: 'langues/data-analytics/data-analytics.html',
+    machineLearningCard: 'langues/machine-learning.html',
+    webDesignCard: 'langues/web-design.html',
+    interviewprepartion: 'langues/interview-prepartion/interview-prepartion.html',
+  };
+
+  Object.keys(subjectCards).forEach(cardId => {
+    const card = document.getElementById(cardId);
+    if (card) {
+      card.addEventListener('click', () => {
+        window.location.href = subjectCards[cardId];
+      });
+    }
+  });
+});
