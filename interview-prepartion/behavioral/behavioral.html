@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Behavioral Interview - Interview Preparation</title>
+    <link rel="stylesheet" href="behavioral.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <button class="back-btn" onclick="window.location.href='http://localhost:3000/'">← Back</button>
+            <h1 class="page-title">💬 Behavioral Interview</h1>
+        </div>
+        <div class="language-selector">
+            <label for="language">Language:</label>
+            <select id="language">
+                <option value="all">All Languages</option>
+                <option value="english">English</option>
+                <option value="hindi">Hindi</option>
+            </select>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button class="tab-btn active" data-tab="youtube">📺 YouTube Channels</button>
+            <button class="tab-btn" data-tab="star">⭐ STAR Method</button>
+            <button class="tab-btn" data-tab="questions">❓ Common Questions</button>
+        </div>
+
+        <!-- YouTube Channels Tab -->
+        <div class="tab-pane active" id="youtube">
+            <div class="section-header">
+                <h2>Top YouTube Channels for Behavioral Interviews</h2>
+                <p>Master the art of answering behavioral questions</p>
+            </div>
+            <div id="channelsList" class="channels-grid"></div>
+        </div>
+
+        <!-- STAR Method Tab -->
+        <div class="tab-pane" id="star">
+            <div class="section-header">
+                <h2>STAR Method Framework</h2>
+                <p>Structure your answers effectively</p>
+            </div>
+            <div id="starList" class="star-grid"></div>
+        </div>
+
+        <!-- Common Questions Tab -->
+        <div class="tab-pane" id="questions">
+            <div class="section-header">
+                <h2>Common Behavioral Questions</h2>
+                <p>Prepare for these frequently asked questions</p>
+            </div>
+            <div id="questionsList" class="questions-grid"></div>
+        </div>
+    </main>
+
+    <script src="behavioral.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Concepts - Interview Preparation</title>
+    <link rel="stylesheet" href="technical-concepts.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <button class="back-btn" onclick="window.location.href='http://localhost:3000/'">← Back</button>
+            <h1 class="page-title">📚 Technical Concepts</h1>
+        </div>
+        <div class="language-selector">
+            <label for="language">Language:</label>
+            <select id="language">
+                <option value="all">All Languages</option>
+                <option value="english">English</option>
+                <option value="hindi">Hindi</option>
+            </select>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button class="tab-btn active" data-tab="youtube">📺 YouTube Channels</button>
+            <button class="tab-btn" data-tab="topics">🎓 Core Topics</button>
+            <button class="tab-btn" data-tab="questions">💬 Interview Questions</button>
+        </div>
+
+        <!-- YouTube Channels Tab -->
+        <div class="tab-pane active" id="youtube">
+            <div class="section-header">
+                <h2>Top YouTube Channels for Technical Concepts</h2>
+                <p>Master CS fundamentals for technical interviews</p>
+            </div>
+            <div id="channelsList" class="channels-grid"></div>
+        </div>
+
+        <!-- Core Topics Tab -->
+        <div class="tab-pane" id="topics">
+            <div class="section-header">
+                <h2>Essential Technical Concepts</h2>
+                <p>Computer Science fundamentals you must know</p>
+            </div>
+            <div id="topicsList" class="topics-grid"></div>
+        </div>
+
+        <!-- Interview Questions Tab -->
+        <div class="tab-pane" id="questions">
+            <div class="section-header">
+                <h2>Common Technical Interview Questions</h2>
+                <p>Frequently asked conceptual questions</p>
+            </div>
+            <div id="questionsList" class="questions-grid"></div>
+        </div>
+    </main>
+
+    <script src="technical-concepts.js"></script>
+</body>
+
+</html>

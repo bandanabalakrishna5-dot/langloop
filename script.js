@@ -93,7 +93,13 @@ document.addEventListener('DOMContentLoaded', () => {
     dataAnalyticsCard: 'langues/data-analytics/data-analytics.html',
     machineLearningCard: 'langues/machine-learning/machine-learning.html',
     webDesignCard: 'langues/web-design/web-design.html',
-    interviewprepartion: 'langues/interview-prepartion/interview-prepartion.html',
+    // Interview Preparation Topics
+    dsaCard: 'interview/dsa/dsa.html',
+    systemDesignCard: 'interview-prepartion/system-design/system-design.html',
+    behavioralCard: 'interview-prepartion/behavioral/behavioral.html',
+    codingPracticeCard: 'interview-prepartion/coding-practice/coding-practice.html',
+    technicalConceptsCard: 'interview-prepartion/technical-concepts/technical-concepts.html',
+    mockInterviewCard: 'interview-prepartion/mock-interviews/mock-interviews.html',
   };
 
   Object.keys(subjectCards).forEach(cardId => {
