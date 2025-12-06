@@ -1,9 +1,9 @@
-/* Python Page Styles */
+/* Java Page Styles */
 :root {
-    --primary-color: #3776ab;
-    --secondary-color: #ffd43b;
-    --accent-color: #4b8bbe;
-    --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --primary-color: #f89820;
+    --secondary-color: #5382a1;
+    --accent-color: #e76f00;
+    --bg-gradient: linear-gradient(135deg, #f89820 0%, #5382a1 100%);
     --card-bg: rgba(255, 255, 255, 0.95);
     --text-dark: #2d3748;
     --text-light: #718096;
@@ -94,7 +94,7 @@ body {
 }
 
 .tab-btn:hover {
-    background: rgba(103, 126, 234, 0.1);
+    background: rgba(248, 152, 32, 0.1);
     color: var(--primary-color);
 }
 
@@ -176,14 +176,14 @@ body {
 
 .language-dropdown:hover {
     border-color: var(--primary-color);
-    box-shadow: 0 2px 8px rgba(55, 118, 171, 0.15), 0 1px 3px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 8px rgba(248, 152, 32, 0.15), 0 1px 3px rgba(0, 0, 0, 0.08);
     transform: translateY(-1px);
 }
 
 .language-dropdown:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 4px rgba(55, 118, 171, 0.12), 0 2px 8px rgba(55, 118, 171, 0.2);
+    box-shadow: 0 0 0 4px rgba(248, 152, 32, 0.12), 0 2px 8px rgba(248, 152, 32, 0.2);
 }
 
 .language-dropdown:active {
@@ -342,7 +342,7 @@ body {
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
 }
 
 .timeline-item {
@@ -420,7 +420,7 @@ body {
 .search-box input:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(55, 118, 171, 0.1);
+    box-shadow: 0 0 0 3px rgba(248, 152, 32, 0.1);
 }
 
 .btn-primary {
@@ -437,7 +437,7 @@ body {
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(55, 118, 171, 0.3);
+    box-shadow: 0 8px 16px rgba(248, 152, 32, 0.3);
 }
 
 .btn-primary:active {
@@ -492,7 +492,7 @@ body {
 #notesContent:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(55, 118, 171, 0.1);
+    box-shadow: 0 0 0 3px rgba(248, 152, 32, 0.1);
 }
 
 /* Responsive */
