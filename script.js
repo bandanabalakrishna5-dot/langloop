@@ -87,12 +87,12 @@ document.addEventListener('DOMContentLoaded', () => {
     pythonCard: 'langues/python/python.html',
     javaCard: 'langues/java/java.html',
     dataScienceCard: 'langues/data-science/data-science.html',
-    javascriptCard: 'langues/javascript.html',
+    javascriptCard: 'langues/javascript/javascript.html',
     htmlCssCard: 'langues/html-css/html-css.html',
-    webDevCard: 'langues/web-development.html',
+    webDevCard: 'langues/web-development/web-development.html',
     dataAnalyticsCard: 'langues/data-analytics/data-analytics.html',
-    machineLearningCard: 'langues/machine-learning.html',
-    webDesignCard: 'langues/web-design.html',
+    machineLearningCard: 'langues/machine-learning/machine-learning.html',
+    webDesignCard: 'langues/web-design/web-design.html',
     interviewprepartion: 'langues/interview-prepartion/interview-prepartion.html',
   };
 
