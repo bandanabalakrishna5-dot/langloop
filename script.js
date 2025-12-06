@@ -5,7 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const grids = {
     'top-subjects': document.getElementById('top-subjects-grid'),
     'interview-prep': document.getElementById('interview-prep-grid'),
-    'professional-skills': document.getElementById('professional-skills-grid')
+    'professional-skills': document.getElementById('professional-skills-grid'),
+    'roadmap': document.getElementById('roadmap-grid'),
+    'practice': document.getElementById('practice-grid')
   };
 
   tabs.forEach(tab => {

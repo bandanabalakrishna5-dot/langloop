@@ -1,0 +1,381 @@
+/* Practice Compiler Premium Styles */
+
+#practice-grid {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    /* padding: 0; Removed to allow specific padding */
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    /* Center items horizontally */
+    min-height: calc(100vh - 80px);
+    /* Full viewport height minus header approx */
+    justify-content: center;
+    /* Center items vertically */
+}
+
+#practice-grid.compiler-active {
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#practice-grid.compiler-active .practice-hero {
+    display: none;
+    /* Hide hero in compiler view */
+}
+
+/* Hero Section */
+.practice-hero {
+    text-align: center;
+    margin-bottom: 40px;
+    /* Match Roadmap exactly */
+    animation: fadeInDown 0.8s ease-out;
+    transition: all 0.5s ease;
+    width: 100%;
+}
+
+.practice-hero h2 {
+    font-size: 3.5rem;
+    background: linear-gradient(135deg, #fff 0%, #38ef7d 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+    font-weight: 800;
+    text-shadow: 0 10px 30px rgba(56, 239, 125, 0.2);
+}
+
+.practice-hero p {
+    color: #cbd5e1;
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Practice Search Container */
+#practiceSearchContainer {
+    width: 100%;
+    max-width: 600px;
+    /* Match Roadmap width (was 700px) */
+    margin: 0 auto;
+    margin-bottom: 60px;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#practiceSearchContainer.hidden {
+    display: none;
+    opacity: 0;
+}
+
+#practiceSearchContainer .search-input-wrapper {
+    position: relative;
+    /* Changed from flex to relative for absolute icon */
+    background: rgba(255, 255, 255, 0.05);
+    /* Match Roadmap bg */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    /* Match Roadmap radius */
+    padding: 5px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#practiceSearchContainer .search-input-wrapper:hover,
+#practiceSearchContainer .search-input-wrapper:focus-within {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3), 0 0 20px rgba(56, 239, 125, 0.2);
+}
+
+#practiceSearch {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 20px 60px 20px 30px;
+    /* Match Roadmap padding */
+    font-size: 1.2rem;
+    color: white;
+    font-family: inherit;
+    outline: none;
+}
+
+#practiceSearch::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 300;
+}
+
+#practiceSearchContainer .search-icon {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.5);
+    transition: color 0.3s ease;
+    margin-right: 0;
+    /* Remove previous margin */
+}
+
+#practiceSearchContainer .search-input-wrapper:focus-within .search-icon {
+    color: #38ef7d;
+}
+
+/* Compiler View Container */
+#compilerContainer {
+    display: none;
+    flex-direction: column;
+    /* Big Screen: 95% of viewport width */
+    width: 95vw;
+    /* Big Screen: 85% of viewport height */
+    height: 85vh;
+    max-width: 1920px;
+    /* Cap for crazy wide screens */
+    background: #1e1e2e;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: zoomIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    margin: 0 auto;
+    /* Ensure centering */
+}
+
+#compilerContainer.active {
+    display: flex;
+}
+
+/* Compiler Header */
+.compiler-header {
+    background: #282a36;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.lang-badge {
+    background: #44475a;
+    color: #f8f8f2;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-family: 'Fira Code', monospace;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.compiler-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #e2e8f0;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #cbd5e1;
+    color: white;
+}
+
+.btn-run {
+    background: #38ef7d;
+    color: #1e1e2e;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    box-shadow: 0 0 15px rgba(56, 239, 125, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-run:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(56, 239, 125, 0.6);
+}
+
+/* Main Split View */
+.compiler-body {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .compiler-body {
+        flex-direction: column;
+    }
+}
+
+/* Code Editor Area */
+.editor-area {
+    flex: 6;
+    background: #1e1e2e;
+    position: relative;
+    display: flex;
+}
+
+.line-numbers {
+    background: #282a36;
+    color: #6272a4;
+    padding: 15px 10px;
+    text-align: right;
+    font-family: 'Fira Code', monospace;
+    font-size: 15px;
+    line-height: 1.5;
+    user-select: none;
+    width: 50px;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.code-input {
+    flex: 1;
+    background: transparent;
+    color: #f8f8f2;
+    border: none;
+    resize: none;
+    padding: 15px;
+    font-family: 'Fira Code', monospace;
+    font-size: 15px;
+    line-height: 1.5;
+    outline: none;
+    white-space: pre;
+}
+
+/* Terminal Area */
+.terminal-area {
+    flex: 4;
+    background: #0f0f14;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-header {
+    background: #191921;
+    padding: 12px 20px;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.terminal-output {
+    flex: 1;
+    padding: 20px;
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+    color: #a5b4fc;
+    overflow-y: auto;
+}
+
+.output-line {
+    margin-bottom: 5px;
+}
+
+.error-line {
+    color: #ff5555;
+}
+
+.success-line {
+    color: #50fa7b;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Autocomplete Suggestions */
+.suggestions-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(30, 30, 46, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    margin-top: 10px;
+    overflow: hidden;
+    display: none;
+    z-index: 100;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.suggestions-list.visible {
+    display: block;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.suggestion-item {
+    padding: 12px 24px;
+    cursor: pointer;
+    color: #cbd5e1;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+.suggestion-item:hover {
+    background: rgba(56, 239, 125, 0.1);
+    color: #38ef7d;
+    padding-left: 28px;
+    /* Slight movement on hover */
+}
+
+/* Scrollbar for suggestions */
+.suggestions-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.suggestions-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+.suggestions-list::-webkit-scrollbar-track {
+    background: transparent;
+}

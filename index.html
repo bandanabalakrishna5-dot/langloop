@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LangLoop</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="roadmap/roadmap.css">
+  <link rel="stylesheet" href="practice/practice.css">
 </head>
 
 <body>
@@ -126,6 +128,66 @@
         <div class="card-title">Problem Solving</div>
       </div>
     </div>
+
+    <!-- Roadmap Feature Container -->
+    <div id="roadmap-grid" style="display: none;">
+      <div class="roadmap-hero">
+        <h2>Developer Roadmaps</h2>
+        <p>Step-by-step guides to master your favorite programming languages.</p>
+      </div>
+
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <input type="text" id="roadmapSearch" placeholder="Search roadmap (e.g. Java, Python)..." autocomplete="off">
+          <i class="search-icon">🔍</i>
+          <div id="roadmapSuggestions" class="suggestions-list"></div>
+        </div>
+      </div>
+
+      <div id="roadmapDisplay">
+        <!-- Roadmap content will be injected here via JS -->
+      </div>
+    </div>
+
+    <!-- Practice / Compiler Feature Container -->
+    <div id="practice-grid" style="display: none;">
+      <div class="practice-hero">
+        <h2>Practice & Compile</h2>
+        <p>Write, run, and test your code directly in the browser.</p>
+      </div>
+      <!-- View 1: Search -->
+      <div id="practiceSearchContainer">
+        <div class="search-input-wrapper">
+          <input type="text" id="practiceSearch" placeholder="Search language to compile (e.g. Java, Python, JS)..."
+            autocomplete="off">
+          <i class="search-icon">🔍</i>
+          <div id="suggestions" class="suggestions-list"></div>
+        </div>
+      </div>
+
+      <!-- View 2: Compiler -->
+      <div id="compilerContainer">
+        <div class="compiler-header">
+          <div class="lang-badge" id="compilerLangName">JavaScript</div>
+          <div class="compiler-actions">
+            <button class="btn-secondary" id="btnBackToSearch">← Back</button>
+            <button class="btn-run" id="btnRunCode">▶ Run Code</button>
+          </div>
+        </div>
+        <div class="compiler-body">
+          <div class="editor-area">
+            <div class="line-numbers" id="lineNumbers">1</div>
+            <textarea class="code-input" id="codeEditor" spellcheck="false"></textarea>
+          </div>
+          <div class="terminal-area">
+            <div class="terminal-header">TERMINAL / OUTPUT</div>
+            <div class="terminal-output" id="terminalOutput">
+              <div class="output-line" style="color: #6272a4">// Output will appear here...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Login / Signup Modal -->
@@ -172,6 +234,8 @@
   </div>
 
   <!-- Link external JavaScript -->
+  <script src="roadmap/roadmap.js"></script>
+  <script src="practice/practice.js"></script>
   <script src="script.js"></script>
 </body>
 
