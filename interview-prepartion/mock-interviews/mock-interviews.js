@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (backBtn) {
         backBtn.addEventListener('click', function (e) {
             e.preventDefault();
-            window.location.href = 'http://localhost:3000/';
+            window.location.href = '../../index.html';
         });
     }
 
