@@ -431,3 +431,39 @@ nav a:hover {
     font-size: 18px;
   }
 }
+
+/* Page Header Back Button */
+.page-header {
+  position: relative;
+}
+
+.back-btn {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  backdrop-filter: blur(5px);
+  text-decoration: none;
+  /* In case it's an anchor */
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-50%) scale(1.05);
+  /* Keep vertical center while scaling */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}

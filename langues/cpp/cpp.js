@@ -48,6 +48,14 @@ const youtubeChannels = [
 
 // Tab Switching
 document.addEventListener('DOMContentLoaded', function () {
+    // Back button functionality
+    const backBtn = document.querySelector('.back-btn');
+    if (backBtn) {
+        backBtn.addEventListener('click', () => {
+            window.location.href = '../../index.html';
+        });
+    }
+
     const tabButtons = document.querySelectorAll('.tab-btn');
     const tabPanes = document.querySelectorAll('.tab-pane');
 

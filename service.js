@@ -23,15 +23,6 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-const db = require('./database/db');
-
-app.listen(PORT, async () => {
+app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
-
-  try {
-    await db.execute('SELECT 1');
-    console.log('Database connection successful');
-  } catch (err) {
-    console.error('Database connection failed:', err.message);
-  }
 });
