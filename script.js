@@ -112,4 +112,65 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
+
+  // Language Search and Limit Logic
+  const allLanguageGrid = document.getElementById('top-subjects-grid');
+  const languageCards = allLanguageGrid.querySelectorAll('.card');
+  const searchInput = document.getElementById('languageSearch');
+  const searchContainer = document.getElementById('languageSearchContainer');
+
+  // Initial Limit: Show only top 6
+  function updateLanguageDisplay(filter = '') {
+    languageCards.forEach((card, index) => {
+      const title = card.querySelector('.card-title').textContent.toLowerCase();
+      const matches = title.includes(filter.toLowerCase());
+
+      if (filter === '') {
+        // No search: Show only first 4
+        if (index < 4) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      } else {
+        // Search active: Show all matches
+        if (matches) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      }
+    });
+  }
+
+  // Initialize display
+  updateLanguageDisplay();
+
+  // Search Event Listener
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      updateLanguageDisplay(e.target.value);
+    });
+  }
+
+  // Toggle Search Bar Visibility based on active tab
+  function toggleSearchBar(tabName) {
+    if (tabName === 'top-subjects') {
+      searchContainer.classList.remove('hidden');
+    } else {
+      searchContainer.classList.add('hidden');
+    }
+  }
+
+  // Hook into existing tab click listener to toggle search bar
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const selectedTab = tab.getAttribute('data-tab');
+      toggleSearchBar(selectedTab);
+    });
+  });
+
+  // Initial state check
+  toggleSearchBar('top-subjects');
+
 });
