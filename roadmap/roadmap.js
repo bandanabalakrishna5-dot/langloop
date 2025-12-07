@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     return `
                     <div class="suggestion-item" data-lang="${key}">
                         <span>${icon}</span>
-                        <span>${displayName} Roadmap</span>
+                        <span>${displayName}</span>
                     </div>
                 `;
                 }).join('');

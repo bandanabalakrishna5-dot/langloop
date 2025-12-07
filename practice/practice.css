@@ -1,94 +1,93 @@
-/* Practice Compiler Premium Styles */
+/* Practice UI - Aligned with Roadmap Style */
+:root {
+    /* Roadmap Theme Colors (Indigo/Dark) */
+    --practice-primary: #818cf8;
+    --practice-primary-hover: #6366f1;
+    --practice-bg-gradient: linear-gradient(135deg, #1e1e2e 0%, #2d2d44 100%);
+    /* Assuming a dark context based on Roadmap styling, though main body is currently light. 
+       We will style the practice grid to look good regardless, or enforce dark accents. */
+
+    --glass-bg-dark: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-primary: #fff;
+    --text-secondary: #cbd5e1;
+
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.3);
+    --shadow-glow: 0 0 20px rgba(129, 140, 248, 0.2);
+
+    /* Editor Specific */
+    --editor-bg: #1e1e1e;
+    --terminal-bg: #191919;
+    --sidebar-bg: #252526;
+    --border-dark: #333;
+}
 
 #practice-grid {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    /* padding: 0; Removed to allow specific padding */
-    display: none;
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    /* Center items horizontally */
-    min-height: calc(100vh - 80px);
-    /* Full viewport height minus header approx */
-    justify-content: center;
-    /* Center items vertically */
-}
-
-#practice-grid.compiler-active {
-    justify-content: center;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-#practice-grid.compiler-active .practice-hero {
-    display: none;
-    /* Hide hero in compiler view */
+    width: 100%;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    gap: 40px;
+    /* Force dark styling context for this section if needed, or rely on container */
 }
 
 /* Hero Section */
 .practice-hero {
     text-align: center;
-    margin-bottom: 40px;
-    /* Match Roadmap exactly */
+    margin-bottom: 30px;
     animation: fadeInDown 0.8s ease-out;
-    transition: all 0.5s ease;
-    width: 100%;
 }
 
 .practice-hero h2 {
-    font-size: 3.5rem;
-    background: linear-gradient(135deg, #fff 0%, #38ef7d 100%);
+    font-size: 3rem;
+    font-weight: 800;
+    /* Match Roadmap Gradient: White to Indigo-ish */
+    background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 20px;
-    font-weight: 800;
-    text-shadow: 0 10px 30px rgba(56, 239, 125, 0.2);
+    margin-bottom: 15px;
+    letter-spacing: -1px;
 }
 
 .practice-hero p {
-    color: #cbd5e1;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    /* Light grey text */
     max-width: 600px;
     margin: 0 auto;
+    line-height: 1.6;
 }
 
-/* Practice Search Container */
+/* Search Container - Roadmap Style (Dark Glass) */
 #practiceSearchContainer {
     width: 100%;
-    max-width: 600px;
-    /* Match Roadmap width (was 700px) */
-    margin: 0 auto;
-    margin-bottom: 60px;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    animation: fadeInUp 0.8s ease-out 0.2s backwards;
 }
 
-#practiceSearchContainer.hidden {
-    display: none;
-    opacity: 0;
-}
-
-#practiceSearchContainer .search-input-wrapper {
+.search-input-wrapper {
     position: relative;
-    /* Changed from flex to relative for absolute icon */
-    background: rgba(255, 255, 255, 0.05);
-    /* Match Roadmap bg */
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 600px;
+    background: var(--glass-bg-dark);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
     border-radius: 20px;
-    /* Match Roadmap radius */
     padding: 5px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-#practiceSearchContainer .search-input-wrapper:hover,
-#practiceSearchContainer .search-input-wrapper:focus-within {
+.search-input-wrapper:focus-within {
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.3);
     transform: translateY(-2px);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3), 0 0 20px rgba(56, 239, 125, 0.2);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3), var(--shadow-glow);
 }
 
 #practiceSearch {
@@ -96,218 +95,280 @@
     background: transparent;
     border: none;
     padding: 20px 60px 20px 30px;
-    /* Match Roadmap padding */
     font-size: 1.2rem;
-    color: white;
-    font-family: inherit;
+    color: var(--text-primary);
     outline: none;
+    font-family: inherit;
 }
 
 #practiceSearch::placeholder {
     color: rgba(255, 255, 255, 0.4);
-    font-weight: 300;
 }
 
-#practiceSearchContainer .search-icon {
+.search-icon {
     position: absolute;
     right: 30px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 1.5rem;
     color: rgba(255, 255, 255, 0.5);
+    pointer-events: none;
     transition: color 0.3s ease;
-    margin-right: 0;
-    /* Remove previous margin */
 }
 
-#practiceSearchContainer .search-input-wrapper:focus-within .search-icon {
-    color: #38ef7d;
+.search-input-wrapper:focus-within .search-icon {
+    color: var(--practice-primary);
 }
 
-/* Compiler View Container */
-#compilerContainer {
-    display: none;
-    flex-direction: column;
-    /* Big Screen: 95% of viewport width */
-    width: 95vw;
-    /* Big Screen: 85% of viewport height */
-    height: 85vh;
-    max-width: 1920px;
-    /* Cap for crazy wide screens */
+/* Suggestions List - Dark Theme */
+#suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
     background: #1e1e2e;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    /* Darker background */
     border: 1px solid rgba(255, 255, 255, 0.1);
-    animation: zoomIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    margin: 0 auto;
-    /* Ensure centering */
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    margin-top: 10px;
+    z-index: 20;
+    overflow: hidden;
+    display: none;
+    animation: fadeIn 0.2s ease-out;
 }
 
-#compilerContainer.active {
-    display: flex;
-}
-
-/* Compiler Header */
-.compiler-header {
-    background: #282a36;
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.suggestion-item {
+    padding: 12px 24px;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.lang-badge {
-    background: #44475a;
-    color: #f8f8f2;
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-family: 'Fira Code', monospace;
-    font-size: 1.1rem;
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+.suggestion-item:hover {
+    background: rgba(129, 140, 248, 0.1);
+    color: var(--practice-primary);
+    padding-left: 28px;
+}
+
+/* Compiler Interface */
+#compilerContainer {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: var(--editor-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+    border: 1px solid var(--border-dark);
+    animation: scaleIn 0.4s ease-out backwards;
+}
+
+/* Window Header */
+.compiler-header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 20px;
+    background: #2d2d2d;
+    border-bottom: 1px solid #111;
+}
+
+.window-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.dot.red {
+    background-color: #ff5f56;
+}
+
+.dot.yellow {
+    background-color: #ffbd2e;
+}
+
+.dot.green {
+    background-color: #27c93f;
+}
+
+.lang-badge {
+    font-family: 'Consolas', monospace;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    opacity: 0.8;
 }
 
 .compiler-actions {
     display: flex;
-    gap: 15px;
+    gap: 12px;
+}
+
+.btn-secondary,
+.btn-run {
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    outline: none;
 }
 
 .btn-secondary {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #e2e8f0;
-    padding: 10px 20px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.3s;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 1rem;
+    background: transparent;
+    border: 1px solid #555;
+    color: #ccc;
 }
 
 .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: #cbd5e1;
-    color: white;
+    border-color: #888;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
 }
 
+/* Indigo Run Button */
 .btn-run {
-    background: #38ef7d;
-    color: #1e1e2e;
     border: none;
-    padding: 10px 30px;
-    border-radius: 6px;
-    font-weight: 700;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1rem;
-    box-shadow: 0 0 15px rgba(56, 239, 125, 0.4);
-    transition: transform 0.2s, box-shadow 0.2s;
+    background: linear-gradient(135deg, #818cf8, #6366f1);
+    color: white;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
 }
 
 .btn-run:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 25px rgba(56, 239, 125, 0.6);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+    filter: brightness(1.1);
 }
 
-/* Main Split View */
+.btn-run:active {
+    transform: translateY(0);
+}
+
+/* Editor & Terminal (Keep dark theme as it fits Roadmap style too) */
 .compiler-body {
-    display: flex;
-    flex: 1;
-    overflow: hidden;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    height: 600px;
+    background: var(--editor-bg);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .compiler-body {
-        flex-direction: column;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
     }
 }
 
-/* Code Editor Area */
 .editor-area {
-    flex: 6;
-    background: #1e1e2e;
-    position: relative;
     display: flex;
+    border-right: 1px solid var(--border-dark);
+    position: relative;
 }
 
 .line-numbers {
-    background: #282a36;
-    color: #6272a4;
-    padding: 15px 10px;
+    padding: 20px 15px 20px 20px;
     text-align: right;
-    font-family: 'Fira Code', monospace;
-    font-size: 15px;
-    line-height: 1.5;
+    color: #5c6370;
+    background: var(--sidebar-bg);
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 14px;
+    line-height: 1.6;
     user-select: none;
-    width: 50px;
-    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    border-right: 1px solid var(--border-dark);
 }
 
 .code-input {
-    flex: 1;
-    background: transparent;
-    color: #f8f8f2;
+    width: 100%;
+    height: 100%;
     border: none;
     resize: none;
-    padding: 15px;
-    font-family: 'Fira Code', monospace;
-    font-size: 15px;
-    line-height: 1.5;
+    padding: 20px;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 14px;
+    line-height: 1.6;
     outline: none;
-    white-space: pre;
+    background: transparent;
+    color: var(--text-main);
+    caret-color: var(--practice-primary);
 }
 
-/* Terminal Area */
 .terminal-area {
-    flex: 4;
-    background: #0f0f14;
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--terminal-bg);
     display: flex;
     flex-direction: column;
 }
 
 .terminal-header {
-    background: #191921;
-    padding: 12px 20px;
-    color: #94a3b8;
-    font-size: 0.9rem;
-    font-weight: 600;
+    padding: 10px 20px;
+    background: #252526;
+    font-size: 0.85rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: #888;
+    border-bottom: 1px solid var(--border-dark);
+    display: flex;
+    align-items: center;
+}
+
+.terminal-header::before {
+    content: '>';
+    margin-right: 8px;
+    color: var(--practice-primary);
+    font-weight: 900;
 }
 
 .terminal-output {
-    flex: 1;
     padding: 20px;
-    font-family: 'Fira Code', monospace;
-    font-size: 14px;
-    color: #a5b4fc;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 0.9rem;
+    color: #ddd;
     overflow-y: auto;
+    flex-grow: 1;
 }
 
 .output-line {
-    margin-bottom: 5px;
+    margin-bottom: 6px;
+    animation: fadeIn 0.3s forwards;
 }
 
-.error-line {
-    color: #ff5555;
+/* Animations (Same as before) */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.success-line {
-    color: #50fa7b;
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-@keyframes zoomIn {
+@keyframes scaleIn {
     from {
         opacity: 0;
         transform: scale(0.95);
@@ -319,63 +380,8 @@
     }
 }
 
-/* Autocomplete Suggestions */
-.suggestions-list {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: rgba(30, 30, 46, 0.95);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    margin-top: 10px;
-    overflow: hidden;
-    display: none;
-    z-index: 100;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    max-height: 300px;
-    overflow-y: auto;
-}
-
-.suggestions-list.visible {
-    display: block;
-    animation: fadeIn 0.2s ease-out;
-}
-
-.suggestion-item {
-    padding: 12px 24px;
-    cursor: pointer;
-    color: #cbd5e1;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.suggestion-item:last-child {
-    border-bottom: none;
-}
-
-.suggestion-item:hover {
-    background: rgba(56, 239, 125, 0.1);
-    color: #38ef7d;
-    padding-left: 28px;
-    /* Slight movement on hover */
-}
-
-/* Scrollbar for suggestions */
-.suggestions-list::-webkit-scrollbar {
-    width: 6px;
-}
-
-.suggestions-list::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 3px;
-}
-
-.suggestions-list::-webkit-scrollbar-track {
-    background: transparent;
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
 }

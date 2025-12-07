@@ -42,7 +42,7 @@
 .suggestion-item {
     padding: 12px 24px;
     cursor: pointer;
-    color: #cbd5e1;
+    color: #fff;
     transition: all 0.2s ease;
     display: flex;
     align-items: center;
