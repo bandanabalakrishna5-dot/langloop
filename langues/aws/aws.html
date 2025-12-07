@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS - Learning Resources</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="aws.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="page-header">
+            <button class="back-btn" onclick="window.location.href='../../index.html'">← Back</button>
+            <h1>☁️ AWS Learning Resources</h1>
+            <p class="subtitle">Master AWS with curated resources</p>
+        </header>
+
+        <div class="tabs-container">
+            <div class="tabs-nav">
+                <button class="tab-btn active" data-tab="youtube">
+                     YouTube Channels
+                </button>
+                <button class="tab-btn" data-tab="updates">
+                     Updates & History
+                </button>
+                <button class="tab-btn" data-tab="notes">
+                     Notes & PDF
+                </button>
+            </div>
+
+            <div class="tabs-content">
+                <div class="tab-pane active" id="youtube">
+                    <div class="youtube-channels" id="channelsList"></div>
+                </div>
+
+                <div class="tab-pane" id="updates">
+                    <div class="updates-section">
+                        <div class="update-card">
+                            <h3>📰 Latest AWS News</h3>
+                            <div id="newsContent">
+                                <p>Stay updated with the latest in AWS.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="notes">
+                    <div class="notes-section">
+                         <h3>🔍 Search for AWS Notes</h3>
+                         <div class="search-box">
+                                <input type="text" id="searchQuery" placeholder="Enter topic...">
+                                <button id="searchBtn" class="btn-primary">Search</button>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="aws.js"></script>
+</body>
+</html>
