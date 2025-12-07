@@ -241,24 +241,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Toggle Search Bar Visibility based on active tab
-  function toggleSearchBar(tabName) {
+  // Toggle Search Bar and Show More Button Visibility based on active tab
+  function updateTabSpecificVisibility(tabName) {
     if (tabName === 'top-subjects') {
       searchContainer.classList.remove('hidden');
+      // Re-run the display logic to decide if button should show (based on current search/limit)
+      updateLanguageDisplay(searchInput ? searchInput.value : '');
     } else {
       searchContainer.classList.add('hidden');
+      // Explicitly hide Show More button on other tabs
+      if (showMoreContainer) {
+        showMoreContainer.style.display = 'none';
+      }
     }
   }
 
-  // Hook into existing tab click listener to toggle search bar
+  // Hook into existing tab click listener
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       const selectedTab = tab.getAttribute('data-tab');
-      toggleSearchBar(selectedTab);
+      updateTabSpecificVisibility(selectedTab);
     });
   });
 
   // Initial state check
-  toggleSearchBar('top-subjects');
+  updateTabSpecificVisibility('top-subjects');
 
 });
