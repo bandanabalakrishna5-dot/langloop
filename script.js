@@ -275,4 +275,89 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initial state check
   updateTabSpecificVisibility('top-subjects');
 
+  // Handle Signup form submission
+  if (signupForm) {
+    signupForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(signupForm);
+      const data = {
+        firstName: formData.get('firstName'),
+        lastName: formData.get('lastName'),
+        email: formData.get('signupEmail'),
+        password: formData.get('signupPassword')
+      };
+
+      try {
+        const response = await fetch('/api/users/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          alert('Signup successful! Please login.');
+          showLoginLink.click(); // Switch to login form
+        } else {
+          alert('Signup failed: ' + result.error);
+        }
+      } catch (error) {
+        console.error('Error during signup:', error);
+        alert('An error occurred during signup.');
+      }
+    });
+  }
+
+  // Handle Login form submission
+  if (loginForm) {
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(loginForm);
+      const data = {
+        email: formData.get('email'),
+        password: formData.get('password')
+      };
+
+      try {
+        const response = await fetch('/api/users/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          alert('Login successful! Welcome back, ' + result.data.first_name);
+          loginModal.style.display = 'none';
+
+          // Update UI for logged in state
+          openLoginBtn.style.display = 'none';
+          openSignupBtn.style.display = 'none';
+
+          const userProfile = document.getElementById('userProfile');
+          const userNameDisplay = document.getElementById('userNameDisplay');
+          const userAvatar = document.getElementById('userAvatar');
+
+          if (userProfile && userNameDisplay && userAvatar) {
+            userProfile.style.display = 'flex';
+            const fullName = `${result.data.first_name || result.data.firstName} ${result.data.last_name || result.data.lastName}`;
+            userNameDisplay.textContent = fullName;
+            userAvatar.textContent = (result.data.first_name || result.data.firstName || 'U').charAt(0).toUpperCase();
+          }
+        } else {
+          alert('Login failed: ' + result.error);
+        }
+      } catch (error) {
+        console.error('Error during login:', error);
+        alert('An error occurred during login.');
+      }
+    });
+  }
+
 });
