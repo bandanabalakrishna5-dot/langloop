@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-const userServiceSql = require('./userServiceSql');
+const User = require('../Models/User');
 
 class UserService {
     /**
@@ -8,23 +8,31 @@ class UserService {
     async registerUser(userData) {
         const { firstName, lastName, email, password } = userData;
 
+        // Check if user already exists
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            throw new Error('User already exists with this email');
+        }
+
         // Hash the password
         const saltRounds = 10;
         const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-        // Pass the hashed password to the SQL service
-        const userId = await userServiceSql.createUser({
+        // Create new user in MongoDB
+        const user = new User({
             firstName,
             lastName,
             email,
             password: hashedPassword
         });
 
+        await user.save();
+
         return {
-            id: userId,
-            firstName,
-            lastName,
-            email
+            id: user.id,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email
         };
     }
 
@@ -32,7 +40,7 @@ class UserService {
      * Authenticate a user
      */
     async loginUser(email, password) {
-        const user = await userServiceSql.getUserByEmail(email);
+        const user = await User.findOne({ email });
         if (!user) {
             throw new Error('Invalid email or password');
         }
@@ -43,15 +51,20 @@ class UserService {
         }
 
         // Don't return the password
-        const { password: _, ...userWithoutPassword } = user;
-        return userWithoutPassword;
+        return {
+            id: user.id,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+            createdAt: user.createdAt
+        };
     }
 
     /**
      * Get user by ID
      */
     async getUserDetails(id) {
-        const user = await userServiceSql.getUserById(id);
+        const user = await User.findById(id).select('-password');
         if (!user) {
             throw new Error('User not found');
         }
@@ -62,7 +75,7 @@ class UserService {
      * Get all users
      */
     async listAllUsers() {
-        return await userServiceSql.getAllUsers();
+        return await User.find().select('-password');
     }
 
     /**
@@ -73,15 +86,25 @@ class UserService {
         if (updateData.password) {
             updateData.password = await bcrypt.hash(updateData.password, 10);
         }
-        await userServiceSql.updateUser(id, updateData);
-        return { id, ...updateData };
+
+        const user = await User.findByIdAndUpdate(id, updateData, { new: true, runValidators: true }).select('-password');
+
+        if (!user) {
+            throw new Error('User not found');
+        }
+
+        return user;
     }
 
     /**
      * Remove a user
      */
     async removeUser(id) {
-        return await userServiceSql.deleteUser(id);
+        const result = await User.findByIdAndDelete(id);
+        if (!result) {
+            throw new Error('User not found');
+        }
+        return result;
     }
 }
 

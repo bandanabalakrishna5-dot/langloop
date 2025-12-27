@@ -1,49 +1,18 @@
-const mysql = require('mysql2/promise');
-require('dotenv').config();
+const mongoose = require('mongoose');
 
 /**
- * Database Connection Pool
- * Highly scalable and efficient connection management for MySQL.
+ * MongoDB Connection Configuration
+ * uses Mongoose to manage the connection and schemas.
  */
-const pool = mysql.createPool({
-    host: process.env.DB_HOST || 'localhost',
-    user: process.env.DB_USER || 'root',
-    password: process.env.DB_PASSWORD || '',
-    database: process.env.DB_NAME || 'langloop_db',
-    waitForConnections: true,
-    connectionLimit: 10,
-    queueLimit: 0,
-    enableKeepAlive: true,
-    keepAliveInitialDelay: 0
-});
-
-/**
- * Helper function to execute queries with the pool
- * @param {string} sql - SQL query string
- * @param {Array} params - Query parameters
- */
-async function query(sql, params) {
+const connectDB = async () => {
     try {
-        const [results] = await pool.execute(sql, params);
-        return results;
+        const conn = await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/langloop_db');
+
+        console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
     } catch (error) {
-        console.error('Database Query Error:', error);
-        throw error;
+        console.error(`❌ MongoDB Connection Error: ${error.message}`);
+        process.exit(1);
     }
-}
-
-// Test database connection on startup
-(async () => {
-    try {
-        const connection = await pool.getConnection();
-        console.log('✅ Database connected successfully');
-        connection.release();
-    } catch (err) {
-        console.error('❌ Database connection failed:', err.message);
-    }
-})();
-
-module.exports = {
-    pool,
-    query
 };
+
+module.exports = connectDB;

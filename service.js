@@ -9,8 +9,19 @@ const PORT = process.env.PORT || 3000;
 const routes = require('./backend/Router');
 const { initDatabase } = require('./backend/config/initDb');
 
-// Initialize Database
-initDatabase();
+// Initialize Database and Start Server
+const startServer = async () => {
+  try {
+    await initDatabase();
+
+    app.listen(PORT, () => {
+      console.log(`🚀 Server running at http://localhost:${PORT}`);
+    });
+  } catch (error) {
+    console.error('❌ Failed to start server:', error.message);
+    process.exit(1);
+  }
+};
 
 // Middleware
 app.use(helmet());
@@ -34,6 +45,4 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
-});
+startServer();
