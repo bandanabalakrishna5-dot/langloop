@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const User = require('../Models/User');
 
+
 class UserService {
     /**
      * Register a new user

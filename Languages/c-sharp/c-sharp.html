@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,25 +21,18 @@
             --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            /* Default Blue/Dark Theme */
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); /* Default Blue/Dark Theme */
             min-height: 100vh;
             padding: 2rem;
             color: var(--text-dark);
+            transition: padding-right 0.3s ease;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        .container { max-width: 1200px; margin: 0 auto; }
 
         /* Header */
         .page-header {
@@ -74,7 +66,7 @@
         .back-btn:hover {
             background: rgba(255, 255, 255, 0.25);
             transform: translateY(-50%) scale(1.05);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         .page-header h1 {
@@ -88,10 +80,7 @@
             line-height: 1.2;
         }
 
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
+        .subtitle { font-size: 1.2rem; opacity: 0.9; }
 
         /* Tabs */
         .tabs-container {
@@ -136,44 +125,19 @@
             transition: transform 0.3s ease;
         }
 
-        .tab-btn:hover,
-        .tab-btn.active {
-            color: var(--primary-color);
-        }
-
-        .tab-btn.active::after {
-            transform: scaleX(1);
-        }
-
-        .tab-icon {
-            width: 20px;
-            height: 20px;
-        }
+        .tab-btn:hover, .tab-btn.active { color: var(--primary-color); }
+        .tab-btn.active::after { transform: scaleX(1); }
+        
+        .tab-icon { width: 20px; height: 20px; }
 
         /* Content */
-        .tabs-content {
-            padding: 2rem;
-        }
-
-        .tab-pane {
-            display: none;
-            animation: fadeIn 0.4s ease;
-        }
-
-        .tab-pane.active {
-            display: block;
-        }
+        .tabs-content { padding: 2rem; }
+        .tab-pane { display: none; animation: fadeIn 0.4s ease; }
+        .tab-pane.active { display: block; }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* YouTube Cards */
@@ -204,33 +168,154 @@
             border-radius: var(--border-radius);
             padding: 2rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+            margin-bottom: 2rem;
         }
-
-        .search-box {
-            display: flex;
-            gap: 1rem;
-        }
-
+        
+        .search-box { display: flex; gap: 1rem; }
         .search-box input {
-            flex: 1;
-            padding: 1rem 1.5rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            font-size: 1rem;
+            flex: 1; padding: 1rem 1.5rem; border: 2px solid #e2e8f0;
+            border-radius: 8px; font-size: 1rem;
         }
-
         .btn-primary {
             padding: 1rem 2rem;
             background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white; border: none; border-radius: 8px;
+            font-weight: 600; cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Notebook Sidebar */
+        .notebook-sidebar {
+            position: fixed;
+            right: -400px;
+            top: 0;
+            width: 400px;
+            height: 100vh;
+            background: white;
+            box-shadow: -5px 0 25px rgba(0,0,0,0.1);
+            transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem;
+        }
+
+        .notebook-sidebar.active {
+            right: 0;
+        }
+
+        .notebook-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #f0f4f8;
+            padding-bottom: 1rem;
+        }
+
+        .notebook-header h2 {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .close-sidebar {
+            background: #f0f4f8;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: background 0.2s;
+        }
+
+        .close-sidebar:hover { background: #e2e8f0; }
+
+        .notebook-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .notebook-content textarea {
+            flex: 1;
+            padding: 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            resize: none;
+            font-family: inherit;
+            font-size: 1rem;
+            line-height: 1.6;
+            background: #f8fafc;
+        }
+
+        .notebook-content textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background: white;
+        }
+
+        .floating-note-btn {
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
             border: none;
-            border-radius: 8px;
-            font-weight: 600;
             cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .floating-note-btn:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .note-status {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+            text-align: right;
+        }
+
+        /* Workspace Tab Styles */
+        .workspace-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .notebook-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        @media (max-width: 768px) {
+            .notebook-sidebar { width: 100%; right: -100%; }
         }
     </style>
 </head>
-
 <body>
     <div class="container">
         <header class="page-header">
@@ -243,7 +328,7 @@
             <div class="tabs-nav">
                 <button class="tab-btn active" data-tab="youtube">YouTube Channels</button>
                 <button class="tab-btn" data-tab="updates">Updates & History</button>
-                <button class="tab-btn" data-tab="notes">Notes & PDF</button>
+                <button class="tab-btn" data-tab="notes">Notes & Workspace</button>
             </div>
 
             <div class="tabs-content">
@@ -261,31 +346,55 @@
                 </div>
 
                 <div class="tab-pane" id="notes">
-                    <div class="notes-section">
+                    <div class="workspace-container">
                         <div class="search-container">
-                            <h3>🔍 Search for C# Notes</h3>
-                            <div class="search-box">
-                                <input type="text" id="searchQuery" placeholder="Enter topic...">
-                                <button id="searchBtn" class="btn-primary">Search</button>
+                             <h3>🔍 Search C# Resources</h3>
+                             <div class="search-box">
+                                    <input type="text" id="searchQuery" placeholder="Search for PDF notes, topics...">
+                                    <button id="searchBtn" class="btn-primary">Search</button>
+                             </div>
+                             <div id="searchResults" style="margin-top: 20px;"></div>
+                        </div>
+
+                        <div class="notebook-card">
+                            <h3>📔 My C# Notebook</h3>
+                            <p style="color: var(--text-light); margin-bottom: 1rem;">Your notes are automatically saved locally.</p>
+                            <textarea id="mainNotebook" style="width: 100%; min-height: 300px; padding: 1rem; border: 1px solid #e2e8f0; border-radius: 8px; font-family: inherit; font-size: 1rem; line-height: 1.6; margin-bottom: 1rem;" placeholder="Start taking notes..."></textarea>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <button id="saveMainBtn" class="btn-primary">Save Changes</button>
+                                <span id="mainSaveStatus" class="note-status">All changes saved</span>
                             </div>
-                            <div id="searchResults" style="margin-top: 20px;"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
+    <!-- Floating Quick Note Sidebar -->
+    <button class="floating-note-btn" id="openSidebar" title="Open Quick Notes">📝</button>
 
+    <div class="notebook-sidebar" id="sidebar">
+        <div class="notebook-header">
+            <h2>📝 Quick Notes</h2>
+            <button class="close-sidebar" id="closeSidebar">&times;</button>
+        </div>
+        <div class="notebook-content">
+            <textarea id="sidebarNotes" placeholder="Jot down quick thoughts..."></textarea>
+            <button id="saveSidebarBtn" class="btn-primary">Save Note</button>
+            <p id="sidebarStatus" class="note-status">Saved</p>
+        </div>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Back Button Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const langId = 'csharp';
+
             // Back Button Logic
             const backBtn = document.querySelector('.back-btn');
             if (backBtn) {
                 backBtn.addEventListener('click', () => {
-                    window.location.href = '../../index.html';
+                   window.location.href = '../../index.html';
                 });
             }
 
@@ -302,6 +411,62 @@
                     document.getElementById(targetTab).classList.add('active');
                 });
             });
+
+            // Sidebar Logic
+            const sidebar = document.getElementById('sidebar');
+            const openSidebarBtn = document.getElementById('openSidebar');
+            const closeSidebarBtn = document.getElementById('closeSidebar');
+
+            openSidebarBtn.addEventListener('click', () => {
+                sidebar.classList.add('active');
+            });
+
+            closeSidebarBtn.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+            });
+
+            // Note Persistence Logic
+            const mainNotebook = document.getElementById('mainNotebook');
+            const sidebarNotes = document.getElementById('sidebarNotes');
+            const saveMainBtn = document.getElementById('saveMainBtn');
+            const saveSidebarBtn = document.getElementById('saveSidebarBtn');
+            const mainStatus = document.getElementById('mainSaveStatus');
+            const sidebarStatus = document.getElementById('sidebarStatus');
+
+            // Load saved notes
+            mainNotebook.value = localStorage.getItem(`notes_${langId}_main`) || '';
+            sidebarNotes.value = localStorage.getItem(`notes_${langId}_sidebar`) || '';
+
+            const saveNotes = (type) => {
+                if (type === 'main') {
+                    localStorage.setItem(`notes_${langId}_main`, mainNotebook.value);
+                    mainStatus.innerText = 'All changes saved';
+                    mainStatus.style.color = '#48bb78';
+                } else {
+                    localStorage.setItem(`notes_${langId}_sidebar`, sidebarNotes.value);
+                    sidebarStatus.innerText = 'Saved';
+                    sidebarStatus.style.color = '#48bb78';
+                }
+            };
+
+            mainNotebook.addEventListener('input', () => {
+                mainStatus.innerText = 'Saving...';
+                mainStatus.style.color = '#718096';
+            });
+
+            sidebarNotes.addEventListener('input', () => {
+                sidebarStatus.innerText = 'Saving...';
+                sidebarStatus.style.color = '#718096';
+            });
+
+            saveMainBtn.addEventListener('click', () => saveNotes('main'));
+            saveSidebarBtn.addEventListener('click', () => saveNotes('sidebar'));
+
+            // Auto-save every 3 seconds
+            setInterval(() => {
+                saveNotes('main');
+                saveNotes('sidebar');
+            }, 3000);
 
             // Mock Data for YouTube
             const channelsList = document.getElementById('channelsList');
@@ -323,7 +488,7 @@
             searchBtn.addEventListener('click', () => {
                 const query = document.getElementById('searchQuery').value;
                 const results = document.getElementById('searchResults');
-                if (query) {
+                if(query) {
                     results.innerHTML = `<p>Searching for <strong>${query}</strong> in C# resources...</p>`;
                     setTimeout(() => {
                         results.innerHTML = `<p>Found 3 resources for <strong>${query}</strong> (Placeholder)</p>`;
@@ -333,5 +498,4 @@
         });
     </script>
 </body>
-
 </html>

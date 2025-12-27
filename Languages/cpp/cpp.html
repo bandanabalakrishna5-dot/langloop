@@ -42,7 +42,7 @@
                         <line x1="16" y1="17" x2="8" y2="17" />
                         <polyline points="10 9 9 9 8 9" />
                     </svg>
-                    Notes & PDF
+                    Notes & Workspace
                 </button>
             </div>
 
@@ -151,7 +151,7 @@
 
                 <!-- Notes Tab -->
                 <div class="tab-pane" id="notes">
-                    <div class="notes-section">
+                    <div class="workspace-container">
                         <div class="search-container">
                             <h3>🔍 Search for C++ Notes</h3>
                             <div class="search-box">
@@ -159,22 +159,50 @@
                                     placeholder="Enter topic (e.g., pointers, classes, STL)">
                                 <button id="searchBtn" class="btn-primary">Search</button>
                             </div>
+                            <div class="results-container" id="searchResults">
+                                <!-- Search results will appear here -->
+                            </div>
                         </div>
 
-                        <div class="results-container" id="searchResults">
-                            <!-- Search results will appear here -->
+                        <div class="notebook-card">
+                            <h3>📔 My C++ Notebook</h3>
+                            <p style="color: var(--text-light); margin-bottom: 1rem;">Your notes are automatically saved
+                                locally.</p>
+                            <textarea id="mainNotebook"
+                                style="width: 100%; min-height: 300px; padding: 1rem; border: 1px solid #e2e8f0; border-radius: 8px; font-family: inherit; font-size: 1rem; line-height: 1.6; margin-bottom: 1rem;"
+                                placeholder="Start taking notes..."></textarea>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <button id="saveMainBtn" class="btn-primary">Save Changes</button>
+                                <span id="mainSaveStatus" class="note-status">All changes saved</span>
+                            </div>
                         </div>
 
                         <div class="pdf-converter">
                             <h3>📄 Convert to PDF</h3>
                             <div class="pdf-options">
-                                <textarea id="notesContent" placeholder="Paste or type your notes here..."></textarea>
+                                <textarea id="pdfContentInput"
+                                    placeholder="Paste or type notes here to convert to PDF..."></textarea>
                                 <button id="convertPdfBtn" class="btn-primary">Convert to PDF</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Floating Quick Note Sidebar -->
+    <button class="floating-note-btn" id="openSidebar" title="Open Quick Notes">📝</button>
+
+    <div class="notebook-sidebar" id="sidebar">
+        <div class="notebook-header">
+            <h2>📝 Quick Notes</h2>
+            <button class="close-sidebar" id="closeSidebar">&times;</button>
+        </div>
+        <div class="notebook-content">
+            <textarea id="sidebarNotes" placeholder="Jot down quick thoughts..."></textarea>
+            <button id="saveSidebarBtn" class="btn-primary">Save Note</button>
+            <p id="sidebarStatus" class="note-status">Saved</p>
         </div>
     </div>
 

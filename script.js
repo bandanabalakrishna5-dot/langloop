@@ -38,6 +38,57 @@ document.addEventListener('DOMContentLoaded', () => {
   const showLoginLink = document.getElementById('showLogin');
   const openLoginBtn = document.getElementById('openLogin');
   const openSignupBtn = document.getElementById('openSignup');
+  const logoutBtn = document.getElementById('logoutBtn');
+  const userProfile = document.getElementById('userProfile');
+  const userNameDisplay = document.getElementById('userNameDisplay');
+  const userAvatar = document.getElementById('userAvatar');
+
+  // Function to update UI based on auth state
+  function updateAuthUI(user) {
+    if (user) {
+      // User is logged in
+      openLoginBtn.style.display = 'none';
+      openSignupBtn.style.display = 'none';
+
+      if (userProfile && userNameDisplay && userAvatar) {
+        userProfile.style.display = 'flex';
+        const fullName = `${user.first_name || user.firstName} ${user.last_name || user.lastName}`;
+        userNameDisplay.textContent = fullName;
+        userAvatar.textContent = (fullName || 'U').charAt(0).toUpperCase();
+      }
+
+      if (logoutBtn) logoutBtn.style.display = 'inline-block';
+    } else {
+      // User is logged out
+      openLoginBtn.style.display = 'inline-block';
+      openSignupBtn.style.display = 'inline-block';
+
+      if (userProfile) userProfile.style.display = 'none';
+      if (logoutBtn) logoutBtn.style.display = 'none';
+    }
+  }
+
+  // Check for persisted user
+  const storedUser = localStorage.getItem('user');
+  if (storedUser) {
+    try {
+      const user = JSON.parse(storedUser);
+      updateAuthUI(user);
+    } catch (e) {
+      console.error('Failed to parse user data', e);
+      localStorage.removeItem('user');
+    }
+  }
+
+  // Handle Logout
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+      localStorage.removeItem('user');
+      updateAuthUI(null);
+      alert('You have been logged out.');
+      window.location.reload(); // Optional: reload to reset full state
+    });
+  }
 
   // Show modal with login form
   openLoginBtn.addEventListener('click', () => {
@@ -53,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
     signupForm.style.display = 'flex';
   });
 
+  // ... (Keep existing modal switch logic)
   // Inside modal - switch to Signup
   if (showSignupLink) {
     showSignupLink.addEventListener('click', (e) => {
@@ -78,11 +130,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  loginModal.addEventListener('click', (e) => {
-    if (e.target === loginModal) {
-      loginModal.style.display = 'none';
-    }
-  });
 
   // Navigate to subject pages when cards are clicked
   const subjectCards = {
@@ -169,6 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Language Search and Limit Logic
+  // ... (Keep existing Logic)
   const allLanguageGrid = document.getElementById('top-subjects-grid');
   const languageCards = allLanguageGrid.querySelectorAll('.card');
   const searchInput = document.getElementById('languageSearch');
@@ -336,20 +384,12 @@ document.addEventListener('DOMContentLoaded', () => {
           alert('Login successful! Welcome back, ' + result.data.first_name);
           loginModal.style.display = 'none';
 
-          // Update UI for logged in state
-          openLoginBtn.style.display = 'none';
-          openSignupBtn.style.display = 'none';
+          // Persist user
+          localStorage.setItem('user', JSON.stringify(result.data));
 
-          const userProfile = document.getElementById('userProfile');
-          const userNameDisplay = document.getElementById('userNameDisplay');
-          const userAvatar = document.getElementById('userAvatar');
+          // Update UI
+          updateAuthUI(result.data);
 
-          if (userProfile && userNameDisplay && userAvatar) {
-            userProfile.style.display = 'flex';
-            const fullName = `${result.data.first_name || result.data.firstName} ${result.data.last_name || result.data.lastName}`;
-            userNameDisplay.textContent = fullName;
-            userAvatar.textContent = (result.data.first_name || result.data.firstName || 'U').charAt(0).toUpperCase();
-          }
         } else {
           alert('Login failed: ' + result.error);
         }

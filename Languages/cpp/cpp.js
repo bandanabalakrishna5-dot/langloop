@@ -89,6 +89,80 @@ document.addEventListener('DOMContentLoaded', function () {
     // PDF conversion
     const convertPdfBtn = document.getElementById('convertPdfBtn');
     convertPdfBtn.addEventListener('click', convertToPDF);
+
+    // Sidebar Logic
+    const sidebar = document.getElementById('sidebar');
+    const openSidebarBtn = document.getElementById('openSidebar');
+    const closeSidebarBtn = document.getElementById('closeSidebar');
+
+    if (openSidebarBtn) {
+        openSidebarBtn.addEventListener('click', () => {
+            sidebar.classList.add('active');
+        });
+    }
+
+    if (closeSidebarBtn) {
+        closeSidebarBtn.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+        });
+    }
+
+    // Note Persistence Logic
+    const mainNotebook = document.getElementById('mainNotebook');
+    const sidebarNotes = document.getElementById('sidebarNotes');
+    const saveMainBtn = document.getElementById('saveMainBtn');
+    const saveSidebarBtn = document.getElementById('saveSidebarBtn');
+    const mainStatus = document.getElementById('mainSaveStatus');
+    const sidebarStatus = document.getElementById('sidebarStatus');
+
+    const langId = 'cpp';
+
+    // Load saved notes
+    if (mainNotebook) mainNotebook.value = localStorage.getItem(`notes_${langId}_main`) || '';
+    if (sidebarNotes) sidebarNotes.value = localStorage.getItem(`notes_${langId}_sidebar`) || '';
+
+    const saveNotes = (type) => {
+        if (type === 'main' && mainNotebook) {
+            localStorage.setItem(`notes_${langId}_main`, mainNotebook.value);
+            if (mainStatus) {
+                mainStatus.innerText = 'All changes saved';
+                mainStatus.style.color = '#48bb78';
+            }
+        } else if (type === 'sidebar' && sidebarNotes) {
+            localStorage.setItem(`notes_${langId}_sidebar`, sidebarNotes.value);
+            if (sidebarStatus) {
+                sidebarStatus.innerText = 'Saved';
+                sidebarStatus.style.color = '#48bb78';
+            }
+        }
+    };
+
+    if (mainNotebook) {
+        mainNotebook.addEventListener('input', () => {
+            if (mainStatus) {
+                mainStatus.innerText = 'Saving...';
+                mainStatus.style.color = '#718096';
+            }
+        });
+    }
+
+    if (sidebarNotes) {
+        sidebarNotes.addEventListener('input', () => {
+            if (sidebarStatus) {
+                sidebarStatus.innerText = 'Saving...';
+                sidebarStatus.style.color = '#718096';
+            }
+        });
+    }
+
+    if (saveMainBtn) saveMainBtn.addEventListener('click', () => saveNotes('main'));
+    if (saveSidebarBtn) saveSidebarBtn.addEventListener('click', () => saveNotes('sidebar'));
+
+    // Auto-save every 3 seconds
+    setInterval(() => {
+        saveNotes('main');
+        saveNotes('sidebar');
+    }, 3000);
 });
 
 // Display YouTube Channels
@@ -170,7 +244,7 @@ function searchNotes() {
 
 // Convert to PDF Function
 function convertToPDF() {
-    const content = document.getElementById('notesContent').value.trim();
+    const content = document.getElementById('pdfContentInput').value.trim();
 
     if (!content) {
         alert('Please enter some content to convert to PDF.');
@@ -203,6 +277,7 @@ function convertToPDF() {
                     border-radius: 8px;
                     white-space: pre-wrap;
                     word-wrap: break-word;
+                    font-family: 'Courier New', Courier, monospace;
                 }
             </style>
         </head>
