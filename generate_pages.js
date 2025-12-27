@@ -48,7 +48,7 @@ const languages = [
     { id: 'nlp', name: 'NLP', icon: '🗣️' }
 ];
 
-const baseDir = path.join(__dirname, 'langues');
+const baseDir = path.join(__dirname, 'languages');
 
 if (!fs.existsSync(baseDir)) {
     fs.mkdirSync(baseDir);
