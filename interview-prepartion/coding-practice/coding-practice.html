@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Practice - Interview Preparation</title>
+    <link rel="stylesheet" href="coding-practice.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <button class="back-btn" onclick="window.location.href='../../index.html'">← Back</button>
+            <h1 class="page-title">⌨️ Coding Practice</h1>
+        </div>
+        <div class="language-selector">
+            <label for="language">Language:</label>
+            <select id="language">
+                <option value="all">All Languages</option>
+                <option value="english">English</option>
+                <option value="hindi">Hindi</option>
+            </select>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button class="tab-btn active" data-tab="youtube">📺 YouTube Channels</button>
+            <button class="tab-btn" data-tab="platforms">💻 Practice Platforms</button>
+            <button class="tab-btn" data-tab="problems">📝 Problem Sets</button>
+        </div>
+
+        <!-- YouTube Channels Tab -->
+        <div class="tab-pane active" id="youtube">
+            <div class="section-header">
+                <h2>Top YouTube Channels for Coding Practice</h2>
+                <p>Learn problem-solving patterns and techniques</p>
+            </div>
+            <div id="channelsList" class="channels-grid"></div>
+        </div>
+
+        <!-- Practice Platforms Tab -->
+        <div class="tab-pane" id="platforms">
+            <div class="section-header">
+                <h2>Popular Coding Practice Platforms</h2>
+                <p>Master coding through consistent practice</p>
+            </div>
+            <div id="platformsList" class="platforms-grid"></div>
+        </div>
+
+        <!-- Problem Sets Tab -->
+        <div class="tab-pane" id="problems">
+            <div class="section-header">
+                <h2>Curated Problem Sets</h2>
+                <p>Organized by difficulty and patterns</p>
+            </div>
+            <div id="problemsList" class="problems-grid"></div>
+        </div>
+    </main>
+
+    <script src="coding-practice.js"></script>
+</body>
+
+</html>

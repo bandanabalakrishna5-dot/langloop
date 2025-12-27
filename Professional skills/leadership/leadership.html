@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leadership Skills - Professional Skills</title>
+    <link rel="stylesheet" href="leadership.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <button class="back-btn" onclick="window.location.href='../../index.html'">← Back</button>
+            <h1 class="page-title">👑 Leadership Skills</h1>
+        </div>
+        <div class="language-selector">
+            <label for="language">Language:</label>
+            <select id="language">
+                <option value="all">All Languages</option>
+                <option value="english">English</option>
+                <option value="hindi">Hindi</option>
+            </select>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button class="tab-btn active" data-tab="youtube">📺 YouTube Channels</button>
+            <button class="tab-btn" data-tab="resources">📚 Resources & Books</button>
+            <button class="tab-btn" data-tab="tips">📝 Tips & Principles</button>
+        </div>
+
+        <!-- YouTube Channels Tab -->
+        <div class="tab-pane active" id="youtube">
+            <div class="section-header">
+                <h2>Top YouTube Channels for Leadership</h2>
+                <p>Learn from great leaders and management experts</p>
+            </div>
+            <div id="channelsList" class="channels-grid"></div>
+        </div>
+
+        <!-- Resources & Books Tab -->
+        <div class="tab-pane" id="resources">
+            <div class="section-header">
+                <h2>Recommended Books & Resources</h2>
+                <p>Essential reading to develop your leadership potential</p>
+            </div>
+            <div id="resourcesList" class="resources-grid"></div>
+        </div>
+
+        <!-- Tips & Techniques Tab -->
+        <div class="tab-pane" id="tips">
+            <div class="section-header">
+                <h2>Leadership Tips & Principles</h2>
+                <p>Key principles to lead effective teams</p>
+            </div>
+            <div id="tipsList" class="notes-grid"></div>
+        </div>
+    </main>
+
+    <script src="leadership.js"></script>
+</body>
+
+</html>

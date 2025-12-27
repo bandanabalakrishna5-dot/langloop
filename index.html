@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LangLoop</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="roadmap/roadmap.css">
+  <link rel="stylesheet" href="practice/practice.css">
+  <link rel="stylesheet" href="search.css">
+
 </head>
+
 <body>
 
   <header>
     <div class="logo"><span>Lang</span>Loop</div>
     <nav>
-      <!-- <a href="#">Catalog</a> -->
+      <a href="#">AI Agent</a>
       <a href="#">Resources</a>
       <a href="#">Community</a>
-      <!-- <a href="#">Pricing</a> -->
-      <!-- <a href="#">Live Learning <span style="color: yellow;">New</span></a>
-      <a href="#">For Business</a> -->
       <a id="openLogin">Log In</a>
       <button class="btn-yellow" id="openSignup">Sign Up</button>
     </nav>
@@ -26,25 +29,364 @@
     <h1>Build skills that stand out</h1>
 
     <div class="tabs">
-      <div class="tab active">Top subjects</div>
-      <div class="card-title">Interview prepartion</div>
-      <div class="card-title">Professional skills</div>
-
+      <div class="tab active" data-tab="top-subjects">All Language</div>
+      <div class="tab" data-tab="interview-prep">Interview preparation</div>
+      <div class="tab" data-tab="professional-skills">Professional skills</div>
+      <div class="tab" data-tab="roadmap"> Roadmap</div>
+      <div class="tab" data-tab="practice"> Practice</div>
 
     </div>
 
-    <div class="grid">
-
-      <div class="card"><div class="card-icon">🐍</div><div class="card-title">Python</div></div>
-      <div class="card"><div class="card-icon">🌐</div><div class="card-title">HTML & CSS</div></div>
-      <div class="card"><div class="card-icon">📊</div><div class="card-title">Data science</div></div>
-       <div class="card"><div class="card-icon">☕</div><div class="card-title">Java</div></div>
-      <div class="card"><div class="card-icon">💻</div><div class="card-title">Web development</div></div>
-      <div class="card"><div class="card-icon">📈</div><div class="card-title">Data analytics</div></div>
-      <div class="card"><div class="card-icon">🧠</div><div class="card-title">Machine learning</div></div>
-       <div class="card"><div class="card-icon">📜</div><div class="card-title">JavaScript</div></div>
-      <div class="card"><div class="card-icon">🖥️</div><div class="card-title">Web design</div></div>
+    <!-- Search for Languages -->
+    <div class="search-container" id="languageSearchContainer">
+      <input type="text" id="languageSearch" placeholder="Search languages..." class="search-input">
     </div>
+
+    <!-- Top Subjects Grid -->
+    <div class="grid" id="top-subjects-grid">
+      <div class="card" id="pythonCard">
+        <div class="card-icon">🐍</div>
+        <div class="card-title">Python</div>
+      </div>
+      <div class="card" id="htmlCssCard">
+        <div class="card-icon">🌐</div>
+        <div class="card-title">HTML & CSS</div>
+      </div>
+      <div class="card" id="dataScienceCard">
+        <div class="card-icon">📊</div>
+        <div class="card-title">Data science</div>
+      </div>
+      <div class="card" id="javaCard">
+        <div class="card-icon">☕</div>
+        <div class="card-title">Java</div>
+      </div>
+      <div class="card" id="webDevCard">
+        <div class="card-icon">💻</div>
+        <div class="card-title">Web development</div>
+      </div>
+      <div class="card" id="dataAnalyticsCard">
+        <div class="card-icon">📈</div>
+        <div class="card-title">Data analytics</div>
+      </div>
+      <div class="card" id="machineLearningCard">
+        <div class="card-icon">🧠</div>
+        <div class="card-title">Machine learning</div>
+      </div>
+      <div class="card" id="javascriptCard">
+        <div class="card-icon">📜</div>
+        <div class="card-title">JavaScript</div>
+      </div>
+      <div class="card" id="webDesignCard">
+        <div class="card-icon">🖥️</div>
+        <div class="card-title">Web design</div>
+      </div>
+      <!-- New Languages -->
+      <div class="card" id="cppCard">
+        <div class="card-icon">🚀</div>
+        <div class="card-title">C++</div>
+      </div>
+      <div class="card" id="csharpCard">
+        <div class="card-icon">#️⃣</div>
+        <div class="card-title">C#</div>
+      </div>
+      <div class="card" id="cCard">
+        <div class="card-icon">Ⓒ</div>
+        <div class="card-title">C</div>
+      </div>
+      <div class="card" id="goCard">
+        <div class="card-icon">🐹</div>
+        <div class="card-title">Go</div>
+      </div>
+      <div class="card" id="rustCard">
+        <div class="card-icon">🦀</div>
+        <div class="card-title">Rust</div>
+      </div>
+      <div class="card" id="swiftCard">
+        <div class="card-icon">🐦</div>
+        <div class="card-title">Swift</div>
+      </div>
+      <div class="card" id="kotlinCard">
+        <div class="card-icon">🎯</div>
+        <div class="card-title">Kotlin</div>
+      </div>
+      <div class="card" id="phpCard">
+        <div class="card-icon">🐘</div>
+        <div class="card-title">PHP</div>
+      </div>
+      <div class="card" id="rubyCard">
+        <div class="card-icon">💎</div>
+        <div class="card-title">Ruby</div>
+      </div>
+      <div class="card" id="typescriptCard">
+        <div class="card-icon">📘</div>
+        <div class="card-title">TypeScript</div>
+      </div>
+      <div class="card" id="scalaCard">
+        <div class="card-icon">🔴</div>
+        <div class="card-title">Scala</div>
+      </div>
+      <div class="card" id="perlCard">
+        <div class="card-icon">🐪</div>
+        <div class="card-title">Perl</div>
+      </div>
+      <div class="card" id="luaCard">
+        <div class="card-icon">🌙</div>
+        <div class="card-title">Lua</div>
+      </div>
+      <div class="card" id="rCard">
+        <div class="card-icon">📊</div>
+        <div class="card-title">R</div>
+      </div>
+      <div class="card" id="matlabCard">
+        <div class="card-icon">🔢</div>
+        <div class="card-title">MATLAB</div>
+      </div>
+      <div class="card" id="assemblyCard">
+        <div class="card-icon">⚙️</div>
+        <div class="card-title">Assembly</div>
+      </div>
+      <div class="card" id="sqlCard">
+        <div class="card-icon">🗃️</div>
+        <div class="card-title">SQL</div>
+      </div>
+      <div class="card" id="nosqlCard">
+        <div class="card-icon">🚫</div>
+        <div class="card-title">NoSQL</div>
+      </div>
+      <div class="card" id="mongodbCard">
+        <div class="card-icon">🍃</div>
+        <div class="card-title">MongoDB</div>
+      </div>
+      <div class="card" id="postgresqlCard">
+        <div class="card-icon">🐘</div>
+        <div class="card-title">PostgreSQL</div>
+      </div>
+      <div class="card" id="redisCard">
+        <div class="card-icon">🔴</div>
+        <div class="card-title">Redis</div>
+      </div>
+      <div class="card" id="dockerCard">
+        <div class="card-icon">🐳</div>
+        <div class="card-title">Docker</div>
+      </div>
+      <div class="card" id="kubernetesCard">
+        <div class="card-icon">☸️</div>
+        <div class="card-title">Kubernetes</div>
+      </div>
+      <div class="card" id="awsCard">
+        <div class="card-icon">☁️</div>
+        <div class="card-title">AWS</div>
+      </div>
+      <div class="card" id="azureCard">
+        <div class="card-icon">☁️</div>
+        <div class="card-title">Azure</div>
+      </div>
+      <div class="card" id="gcpCard">
+        <div class="card-icon">☁️</div>
+        <div class="card-title">Google Cloud</div>
+      </div>
+      <div class="card" id="androidCard">
+        <div class="card-icon">🤖</div>
+        <div class="card-title">Android</div>
+      </div>
+      <div class="card" id="iosCard">
+        <div class="card-icon">🍎</div>
+        <div class="card-title">iOS</div>
+      </div>
+      <div class="card" id="reactCard">
+        <div class="card-icon">⚛️</div>
+        <div class="card-title">React</div>
+      </div>
+      <div class="card" id="angularCard">
+        <div class="card-icon">🅰️</div>
+        <div class="card-title">Angular</div>
+      </div>
+      <div class="card" id="vueCard">
+        <div class="card-icon">🟢</div>
+        <div class="card-title">Vue.js</div>
+      </div>
+      <div class="card" id="nodejsCard">
+        <div class="card-icon">🌿</div>
+        <div class="card-title">Node.js</div>
+      </div>
+      <div class="card" id="djangoCard">
+        <div class="card-icon">🎸</div>
+        <div class="card-title">Django</div>
+      </div>
+      <div class="card" id="flaskCard">
+        <div class="card-icon">🌶️</div>
+        <div class="card-title">Flask</div>
+      </div>
+      <div class="card" id="springBootCard">
+        <div class="card-icon">🍃</div>
+        <div class="card-title">Spring Boot</div>
+      </div>
+      <div class="card" id="unityCard">
+        <div class="card-icon">🎮</div>
+        <div class="card-title">Unity</div>
+      </div>
+      <div class="card" id="unrealEngineCard">
+        <div class="card-icon">🎮</div>
+        <div class="card-title">Unreal Engine</div>
+      </div>
+      <div class="card" id="gitCard">
+        <div class="card-icon">🐙</div>
+        <div class="card-title">Git</div>
+      </div>
+      <div class="card" id="linuxCard">
+        <div class="card-icon">🐧</div>
+        <div class="card-title">Linux</div>
+      </div>
+      <div class="card" id="devopsCard">
+        <div class="card-icon">♾️</div>
+        <div class="card-title">DevOps</div>
+      </div>
+      <div class="card" id="cybersecurityCard">
+        <div class="card-icon">🔒</div>
+        <div class="card-title">Cybersecurity</div>
+      </div>
+      <div class="card" id="blockchainCard">
+        <div class="card-icon">🔗</div>
+        <div class="card-title">Blockchain</div>
+      </div>
+      <div class="card" id="deepLearningCard">
+        <div class="card-icon">🧠</div>
+        <div class="card-title">Deep Learning</div>
+      </div>
+      <div class="card" id="nlpCard">
+        <div class="card-icon">🗣️</div>
+        <div class="card-title">NLP</div>
+      </div>
+    </div>
+
+    <!-- Show More Button -->
+    <div class="show-more-container" style="text-align: center; margin-top: 30px; display: none;"
+      id="showMoreContainer">
+      <button id="showMoreLanguages" class="btn-yellow">Show More</button>
+    </div>
+
+    <!-- Interview Preparation Grid -->
+    <div class="grid" id="interview-prep-grid" style="display: none;">
+      <div class="card" id="dsaCard">
+        <div class="card-icon">🔢</div>
+        <div class="card-title">Data Structures & Algorithms</div>
+      </div>
+      <div class="card" id="systemDesignCard">
+        <div class="card-icon">🏗️</div>
+        <div class="card-title">System Design</div>
+      </div>
+      <div class="card" id="behavioralCard">
+        <div class="card-icon">💬</div>
+        <div class="card-title">Behavioral Interview</div>
+      </div>
+      <div class="card" id="codingPracticeCard">
+        <div class="card-icon">⌨️</div>
+        <div class="card-title">Coding Practice</div>
+      </div>
+      <div class="card" id="technicalConceptsCard">
+        <div class="card-icon">📚</div>
+        <div class="card-title">Technical Concepts</div>
+      </div>
+      <div class="card" id="mockInterviewCard">
+        <div class="card-icon">🎯</div>
+        <div class="card-title">Mock Interviews</div>
+      </div>
+    </div>
+
+    <!-- Professional Skills Grid -->
+    <div class="grid" id="professional-skills-grid" style="display: none;">
+      <div class="card" id="communicationCard">
+        <div class="card-icon">🗣️</div>
+        <div class="card-title">Communication</div>
+      </div>
+      <div class="card" id="leadershipCard">
+        <div class="card-icon">👑</div>
+        <div class="card-title">Leadership</div>
+      </div>
+      <div class="card" id="projectManagementCard">
+        <div class="card-icon">📋</div>
+        <div class="card-title">Project Management</div>
+      </div>
+      <div class="card" id="teamworkCard">
+        <div class="card-icon">🤝</div>
+        <div class="card-title">Teamwork</div>
+      </div>
+      <div class="card" id="timeManagementCard">
+        <div class="card-icon">⏰</div>
+        <div class="card-title">Time Management</div>
+      </div>
+      <div class="card" id="problemSolvingCard">
+        <div class="card-icon">🧩</div>
+        <div class="card-title">Problem Solving</div>
+      </div>
+    </div>
+
+    <!-- Roadmap Feature Container -->
+    <div id="roadmap-grid" style="display: none;">
+      <div class="roadmap-hero">
+        <h2>Developer Roadmaps</h2>
+        <p>Step-by-step guides to master your favorite programming languages.</p>
+      </div>
+
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <input type="text" id="roadmapSearch" placeholder="Search roadmap (e.g. Java, Python)..." autocomplete="off">
+          <i class="search-icon">🔍</i>
+          <div id="roadmapSuggestions" class="suggestions-list"></div>
+        </div>
+      </div>
+
+      <div id="roadmapDisplay">
+        <!-- Roadmap content will be injected here via JS -->
+      </div>
+    </div>
+
+    <!-- Practice / Compiler Feature Container -->
+    <div id="practice-grid" style="display: none;">
+      <div class="practice-hero">
+        <h2>Practice & Compile</h2>
+        <p>Write, run, and test your code directly in the browser.</p>
+      </div>
+      <!-- View 1: Search -->
+      <div id="practiceSearchContainer">
+        <div class="search-input-wrapper">
+          <input type="text" id="practiceSearch" placeholder="Search language to compile (e.g. Java, Python, JS)..."
+            autocomplete="off">
+          <i class="search-icon">🔍</i>
+          <div id="suggestions" class="suggestions-list"></div>
+        </div>
+      </div>
+
+      <!-- View 2: Compiler -->
+      <div id="compilerContainer">
+        <div class="compiler-header">
+          <div class="window-controls">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="lang-badge" id="compilerLangName">JavaScript</div>
+          <div class="compiler-actions">
+            <button class="btn-secondary" id="btnBackToSearch">← Back</button>
+            <button class="btn-run" id="btnRunCode">▶ Run Code</button>
+          </div>
+        </div>
+        <div class="compiler-body">
+          <div class="editor-area">
+            <div class="line-numbers" id="lineNumbers">1</div>
+            <textarea class="code-input" id="codeEditor" spellcheck="false"></textarea>
+          </div>
+          <div class="terminal-area">
+            <div class="terminal-header">TERMINAL / OUTPUT</div>
+            <div class="terminal-output" id="terminalOutput">
+              <div class="output-line" style="color: #6272a4">// Output will appear here...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
   </div>
 
   <!-- Login / Signup Modal -->
@@ -52,17 +394,9 @@
     <div class="login-box">
       <div class="login-left">
         <h1>LangLoop</h1>
-        <h2>Login into<br>your account</h2>
+        <h2 id="modalTitle">Login into<br>your account</h2>
         <p>A central place where all code languages loop together.</p>
       </div>
-      <div class="login-container" id="loginModals">
-    <div class="login-box">
-      <div class="login-left">
-        <h1>LangLoop</h1>
-        <h2>Create<br>new account</h2>
-        <p>A central place where all code languages loop together.</p>
-      </div>
-      
 
       <div class="login-right">
         <!-- Login Form -->
@@ -76,7 +410,7 @@
           <button type="submit">Login</button>
           <p class="signup-text">Don't have an account? <a href="#" id="showSignup">Sign up</a></p>
         </form>
-        
+
         <!-- Signup Form -->
         <form class="signup-form" id="signupForm" method="post">
           <label for="firstName">First Name</label>
@@ -99,6 +433,10 @@
   </div>
 
   <!-- Link external JavaScript -->
+  <script src="roadmap/roadmap.js"></script>
+  <script src="practice/practice.js"></script>
+
   <script src="script.js"></script>
 </body>
+
 </html>
