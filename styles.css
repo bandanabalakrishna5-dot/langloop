@@ -503,3 +503,53 @@ nav a:hover {
   /* Keep vertical center while scaling */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+
+/* Profile Dropdown Styles */
+.user-profile {
+  position: relative; /* Ensure dropdown is relative to this container */
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 120%; /* Space below the profile button */
+  right: 0;
+  background: white;
+  min-width: 200px;
+  border-radius: 12px; /* Curve design */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding: 10px 0; /* Padding for curve effect on content */
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  z-index: 1001;
+  animation: fadeInDown 0.2s ease;
+  overflow: hidden; /* Clip content to curves */
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.profile-dropdown.show {
+  display: flex;
+}
+
+.dropdown-item {
+  color: #2d3748;
+  padding: 12px 20px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: block;
+  border-radius: 0; /* Override nav link generic styles if any */
+  text-align: left;
+}
+
+.dropdown-item:hover {
+  background: #f7fafc;
+  color: #667eea;
+  transform: none; /* Override nav link hover transform */
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: #e2e8f0;
+  margin: 6px 0;
+}

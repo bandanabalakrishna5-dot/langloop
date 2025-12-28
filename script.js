@@ -7,8 +7,46 @@ document.addEventListener('DOMContentLoaded', () => {
     'interview-prep': document.getElementById('interview-prep-grid'),
     'professional-skills': document.getElementById('professional-skills-grid'),
     'roadmap': document.getElementById('roadmap-grid'),
-    'practice': document.getElementById('practice-grid')
+    'practice': document.getElementById('practice-grid'),
+    'leaderboard': document.getElementById('leaderboard-grid')
   };
+
+  // Leaderboard fetch function
+  async function fetchLeaderboard() {
+    try {
+      const response = await fetch('/api/study-activity/leaderboard');
+      const data = await response.json();
+
+      const tbody = document.getElementById('leaderboardBody');
+      if (tbody) {
+        tbody.innerHTML = ''; // Clear previous
+
+        data.forEach((entry, index) => {
+          const row = document.createElement('tr');
+          row.style.borderBottom = '1px solid rgba(255,255,255,0.05)';
+
+          let rankColor = '#e0e0e0';
+          if (index === 0) rankColor = '#FFD700'; // Gold
+          else if (index === 1) rankColor = '#C0C0C0'; // Silver
+          else if (index === 2) rankColor = '#CD7F32'; // Bronze
+
+          const lastActiveDate = new Date(entry.lastActive).toLocaleDateString();
+          const fullName = `${entry.user.firstName || 'Unknown'} ${entry.user.lastName || ''}`;
+          const hours = Math.round(entry.totalMinutes / 60 * 10) / 10;
+
+          row.innerHTML = `
+            <td style="padding: 15px; color: ${rankColor}; font-weight: bold;">#${index + 1}</td>
+            <td style="padding: 15px; color: #333; font-weight: 500;">${fullName}</td>
+            <td style="padding: 15px; color: #333;">${hours} hours</td>
+            <td style="padding: 15px; font-size: 0.9em; color: #666;">${lastActiveDate}</td>
+          `;
+          tbody.appendChild(row);
+        });
+      }
+    } catch (error) {
+      console.error('Error fetching leaderboard:', error);
+    }
+  }
 
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
@@ -25,7 +63,16 @@ document.addEventListener('DOMContentLoaded', () => {
       // Show the selected grid
       const selectedTab = tab.getAttribute('data-tab');
       if (grids[selectedTab]) {
-        grids[selectedTab].style.display = 'grid';
+        if (selectedTab === 'leaderboard') {
+          grids[selectedTab].style.display = 'flex'; // Leaderboard needs flex
+          fetchLeaderboard();
+        } else {
+          grids[selectedTab].style.display = 'grid'; // Others use grid (usually) or block
+          // Handle special display types if needed, but 'grid' is default for cards
+          if (selectedTab === 'roadmap' || selectedTab === 'practice') {
+            grids[selectedTab].style.display = 'block';
+          }
+        }
       }
     });
   });
@@ -96,6 +143,38 @@ document.addEventListener('DOMContentLoaded', () => {
     loginForm.style.display = 'flex';
     signupForm.style.display = 'none';
   });
+
+  // Profile Dropdown Functionality
+  if (userProfile) {
+    userProfile.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const dropdown = document.getElementById('profileDropdown');
+      if (dropdown) {
+        dropdown.classList.toggle('show');
+      }
+    });
+  }
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', () => {
+    const dropdown = document.getElementById('profileDropdown');
+    if (dropdown && dropdown.classList.contains('show')) {
+      dropdown.classList.remove('show');
+    }
+  });
+
+  // Handle Logout from Dropdown
+  const logoutItem = document.getElementById('logoutItem');
+  if (logoutItem) {
+    logoutItem.addEventListener('click', (e) => {
+      e.preventDefault();
+      localStorage.removeItem('user');
+      updateAuthUI(null);
+      alert('You have been logged out.');
+      window.location.reload();
+    });
+  }
+
 
   // Show modal with signup form
   openSignupBtn.addEventListener('click', () => {

@@ -25,6 +25,12 @@
       <div id="userProfile" class="user-profile" style="display: none;">
         <div class="user-avatar" id="userAvatar">U</div>
         <span class="user-name" id="userNameDisplay">User</span>
+        <div class="profile-dropdown" id="profileDropdown">
+          <a href="#" class="dropdown-item">Edit Profile</a>
+          <a href="#" class="dropdown-item">Upgrade Plan</a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item" id="logoutItem">Log Out</a>
+        </div>
       </div>
       <a id="logoutBtn" style="display: none; cursor: pointer;">Log Out</a>
     </nav>
@@ -39,7 +45,7 @@
       <div class="tab" data-tab="professional-skills">Professional skills</div>
       <div class="tab" data-tab="roadmap"> Roadmap</div>
       <div class="tab" data-tab="practice"> Practice</div>
-
+      <div class="tab" data-tab="leaderboard"> Leaderboard</div>
     </div>
 
     <!-- Search for Languages -->
@@ -389,6 +395,26 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Leaderboard Container -->
+    <div id="leaderboard-grid" class="content-grid hidden"
+      style="display: none; flex-direction: column; align-items: center; width: 100%; max-width: 800px; margin: 0 auto; padding-top: 2rem;">
+      <h2 style="margin-bottom: 20px; color: var(--accent-color);">Top 10 Learners</h2>
+      <table
+        style="width: 100%; border-collapse: collapse; background: var(--card-bg); border-radius: 12px; overflow: hidden;">
+        <thead>
+          <tr style="background: rgba(255, 255, 255, 0.05); text-align: left;">
+            <th style="padding: 15px;">Rank</th>
+            <th style="padding: 15px;">Student</th>
+            <th style="padding: 15px;">Total Study Time</th>
+            <th style="padding: 15px;">Last Active</th>
+          </tr>
+        </thead>
+        <tbody id="leaderboardBody">
+          <!-- Rows will be injected by JS -->
+        </tbody>
+      </table>
     </div>
 
 
