@@ -31,6 +31,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Logo navigation to Home
+  const headerLogo = document.getElementById('headerLogo');
+  if (headerLogo) {
+    headerLogo.addEventListener('click', () => {
+      const homeTab = document.querySelector('.tab[data-tab="home"]');
+      if (homeTab) homeTab.click();
+    });
+  }
+
   // Modal elements
   const loginModal = document.getElementById('loginModal');
   const loginForm = document.querySelector('.login-form');

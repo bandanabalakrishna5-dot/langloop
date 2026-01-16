@@ -503,3 +503,118 @@ nav a:hover {
   /* Keep vertical center while scaling */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+
+/* Home Section Styles */
+.home-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  color: white;
+}
+
+.home-hero {
+  text-align: center;
+  margin-bottom: 60px;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.home-hero h2 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.home-hero p {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.feature-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: var(--accent-color);
+}
+
+.feature-card p {
+  font-size: 1rem;
+  line-height: 1.5;
+  opacity: 0.8;
+}
+
+.home-cta {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 50px;
+  border-radius: 24px;
+  border: 1px dashed rgba(255, 255, 255, 0.3);
+}
+
+.home-cta h3 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.home-cta p {
+  margin-bottom: 30px;
+  opacity: 0.8;
+}
+
+/* Tab Hidden Utility */
+.hidden {
+  display: none !important;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .home-hero h2 {
+    font-size: 2.5rem;
+  }
+
+  .home-hero p {
+    font-size: 1.1rem;
+  }
+}
