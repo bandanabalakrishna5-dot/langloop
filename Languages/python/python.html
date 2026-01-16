@@ -13,7 +13,7 @@
 <body>
     <div class="container">
         <header class="page-header">
-            <button class="back-btn">← Back</button>
+            <button class="back-btn" onclick="window.location.href='../../index.html'">← Back</button>
             <h1>🐍 Python Learning Resources</h1>
             <p class="subtitle">Master Python with curated resources</p>
         </header>
@@ -164,8 +164,11 @@
 
                         <div class="notebook-card">
                             <h3>📔 My Python Notebook</h3>
-                            <p style="color: var(--text-light); margin-bottom: 1rem;">Your notes are automatically saved locally.</p>
-                            <textarea id="mainNotebook" style="width: 100%; min-height: 300px; padding: 1rem; border: 1px solid #e2e8f0; border-radius: 8px; font-family: inherit; font-size: 1rem; line-height: 1.6; margin-bottom: 1rem;" placeholder="Start taking notes..."></textarea>
+                            <p style="color: var(--text-light); margin-bottom: 1rem;">Your notes are automatically saved
+                                locally.</p>
+                            <textarea id="mainNotebook"
+                                style="width: 100%; min-height: 300px; padding: 1rem; border: 1px solid #e2e8f0; border-radius: 8px; font-family: inherit; font-size: 1rem; line-height: 1.6; margin-bottom: 1rem;"
+                                placeholder="Start taking notes..."></textarea>
                             <div style="display: flex; justify-content: space-between; align-items: center;">
                                 <button id="saveMainBtn" class="btn-primary">Save Changes</button>
                                 <span id="mainSaveStatus" class="note-status">All changes saved</span>
@@ -175,7 +178,8 @@
                         <div class="pdf-converter">
                             <h3>📄 Convert to PDF</h3>
                             <div class="pdf-options">
-                                <textarea id="pdfContentInput" placeholder="Paste or type notes here to convert to PDF..."></textarea>
+                                <textarea id="pdfContentInput"
+                                    placeholder="Paste or type notes here to convert to PDF..."></textarea>
                                 <button id="convertPdfBtn" class="btn-primary">Convert to PDF</button>
                             </div>
                         </div>
@@ -202,4 +206,5 @@
 
     <script src="python.js"></script>
 </body>
+
 </html>
