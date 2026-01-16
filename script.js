@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Tab switching functionality - REQUIRED for main page tabs to work
   const tabs = document.querySelectorAll('.tab');
   const grids = {
+    'home': document.getElementById('home-grid'),
     'top-subjects': document.getElementById('top-subjects-grid'),
     'interview-prep': document.getElementById('interview-prep-grid'),
     'professional-skills': document.getElementById('professional-skills-grid'),
@@ -321,7 +322,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Initial state check
-  updateTabSpecificVisibility('top-subjects');
+  updateTabSpecificVisibility('home');
 
   // Handle Signup form submission
   if (signupForm) {

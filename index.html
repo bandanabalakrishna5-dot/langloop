@@ -34,21 +34,59 @@
     <h1>Build skills that stand out</h1>
 
     <div class="tabs">
-      <div class="tab active" data-tab="top-subjects">All Language</div>
+      <div class="tab active" data-tab="home">Home</div>
+      <div class="tab" data-tab="top-subjects">All Language</div>
       <div class="tab" data-tab="interview-prep">Interview preparation</div>
       <div class="tab" data-tab="professional-skills">Professional skills</div>
       <div class="tab" data-tab="roadmap"> Roadmap</div>
       <div class="tab" data-tab="practice"> Practice</div>
+    </div>
+    <!-- Home / About Section -->
+    <div id="home-grid" class="home-container">
+      <div class="home-hero">
+        <h2>Welcome to LangLoop</h2>
+        <p>Your ultimate destination for mastering programming languages and technologies.
+          We curate the best resources, provide structured roadmaps, and offer hands-on practice
+          to help you build skills that truly stand out.</p>
+      </div>
 
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📚</div>
+          <h3>Curated Resources</h3>
+          <p>Hand-picked YouTube channels, documentation, and notes for over 50+ languages and frameworks.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🗺️</div>
+          <h3>Step-by-Step Roadmaps</h3>
+          <p>Follow clear paths to mastery. From absolute beginner to professional developer.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⌨️</div>
+          <h3>Live Code Practice</h3>
+          <p>Write and test your code directly in the browser with our integrated compiler environment.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🤖</div>
+          <h3>AI-Powered Assistant</h3>
+          <p>Interact with our custom AI agent to get quick answers and guided learning throughout the platform.</p>
+        </div>
+      </div>
+
+      <div class="home-cta">
+        <h3>Start your journey today</h3>
+        <p>Explore our library or start a structured roadmap to unlock your potential.</p>
+        <button class="btn-yellow" onclick="document.querySelectorAll('.tab')[1].click()">Explore All Languages</button>
+      </div>
     </div>
 
     <!-- Search for Languages -->
-    <div class="search-container" id="languageSearchContainer">
+    <div class="search-container hidden" id="languageSearchContainer">
       <input type="text" id="languageSearch" placeholder="Search languages..." class="search-input">
     </div>
 
     <!-- Top Subjects Grid -->
-    <div class="grid" id="top-subjects-grid">
+    <div class="grid" id="top-subjects-grid" style="display: none;">
       <div class="card" id="pythonCard">
         <div class="card-icon">🐍</div>
         <div class="card-title">Python</div>
