@@ -2,9 +2,40 @@ const fs = require('fs');
 const path = require('path');
 
 const languages = [
+    {
+        id: 'c',
+        name: 'C',
+        icon: 'Ⓒ',
+        channels: [
+            { name: 'Jacob Sorber', desc: 'Deep dives into C, pointers, and systems programming.', url: 'https://www.youtube.com/c/JacobSorber' },
+            { name: 'Portfolio Courses', desc: 'Clear, concise C programming tutorials and examples.', url: 'https://www.youtube.com/c/PortfolioCourses' },
+            { name: 'Low Level Learning', desc: 'Understanding how C works at the hardware level.', url: 'https://www.youtube.com/c/LowLevelLearning' }
+        ],
+        history: [
+            { year: '1972', title: 'Birth of C', desc: 'Dennis Ritchie creates C at Bell Labs for Unix development.' },
+            { year: '1978', title: 'K&R C', desc: 'Brian Kernighan and Dennis Ritchie publish "The C Programming Language".' },
+            { year: '1989', title: 'ANSI C (C89)', desc: 'The first standardized version of C by ANSI.' },
+            { year: '1999', title: 'C99', desc: 'Introduced inline functions, variable-length arrays, and new data types.' }
+        ]
+    },
+    {
+        id: 'java',
+        name: 'Java',
+        icon: '☕',
+        channels: [
+            { name: 'Amigoscode', desc: 'Modern Java, Spring Boot, and enterprise development.', url: 'https://www.youtube.com/c/amigoscode' },
+            { name: 'Telusko', desc: 'Comprehensive Java tutorials from beginner to advanced.', url: 'https://www.youtube.com/c/Telusko' },
+            { name: 'Java', desc: 'The official YouTube channel for the Java Platform.', url: 'https://www.youtube.com/user/java' }
+        ],
+        history: [
+            { year: '1995', title: 'Java 1.0', desc: 'James Gosling releases Java at Sun Microsystems: "Write Once, Run Anywhere".' },
+            { year: '2004', title: 'Java 5', desc: 'Major update adding Generics, Enums, and Annotations.' },
+            { year: '2014', title: 'Java 8', desc: 'Revolutionary release with Lambdas, Streams, and new Date/Time API.' },
+            { year: '2023', title: 'Java 21', desc: 'Latest LTS release highlighting Virtual Threads and Pattern Matching.' }
+        ]
+    },
     { id: 'cpp', name: 'C++', icon: '🚀' },
     { id: 'csharp', name: 'C#', icon: '#️⃣' },
-    { id: 'c', name: 'C', icon: 'Ⓒ' },
     { id: 'go', name: 'Go', icon: '🐹' },
     { id: 'rust', name: 'Rust', icon: '🦀' },
     { id: 'swift', name: 'Swift', icon: '🐦' },
@@ -413,14 +444,46 @@ languages.forEach(lang => {
             <div class="tabs-content">
                 <div class="tab-pane active" id="youtube">
                     <div class="youtube-channels" id="channelsList">
-                        <!-- Populated by JS -->
+                        ${lang.channels ? lang.channels.map(channel => `
+                        <div class="channel-card">
+                            <h4>${channel.name}</h4>
+                            <p>${channel.desc}</p>
+                            <a href="${channel.url}" target="_blank" style="color: #667eea; font-weight: bold; text-decoration: none;">Visit Channel →</a>
+                        </div>
+                        `).join('') : `
+                        <!-- Default/Placeholder Content -->
+                         <div class="channel-card">
+                            <h4>Recommended Channel</h4>
+                            <p>Great tutorials for ${lang.name} beginners.</p>
+                            <a href="https://www.youtube.com/results?search_query=best+${lang.name}+tutorials" target="_blank" style="color: #667eea; font-weight: bold; text-decoration: none;">Search on YouTube →</a>
+                        </div>
+                        <div class="channel-card">
+                            <h4>Advanced ${lang.name}</h4>
+                            <p>Deep dive into ${lang.name} concepts.</p>
+                            <a href="https://www.youtube.com/results?search_query=advanced+${lang.name}" target="_blank" style="color: #667eea; font-weight: bold; text-decoration: none;">Search on YouTube →</a>
+                        </div>
+                        `}
                     </div>
                 </div>
 
                 <div class="tab-pane" id="updates">
                     <div class="updates-section">
-                        <h3>📰 Latest ${lang.name} News</h3>
+                        <h3>📰 Latest ${lang.name} News & History</h3>
+                        ${lang.history ? `
+                        <div class="history-timeline">
+                            ${lang.history.map(item => `
+                            <div class="timeline-item" style="display: flex; gap: 1rem; margin-bottom: 1.5rem; border-left: 2px solid #e2e8f0; padding-left: 1.5rem;">
+                                <span class="year" style="font-weight: bold; color: #667eea; min-width: 60px;">${item.year}</span>
+                                <div class="timeline-content">
+                                    <h4 style="margin: 0 0 0.5rem 0;">${item.title}</h4>
+                                    <p style="margin: 0; color: #4a5568;">${item.desc}</p>
+                                </div>
+                            </div>
+                            `).join('')}
+                        </div>
+                        ` : `
                         <p>Stay updated with the latest in ${lang.name}. (Content coming soon)</p>
+                        `}
                     </div>
                 </div>
 
